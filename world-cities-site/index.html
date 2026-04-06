@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministerstvo Měřítek</title>
+    <meta name="description" content="Ministerstvo Měřítek je 2D platformer roguelike o úředníkovi, který mění velikost sebe i města ukradeným razítkem.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="script2Dgame.js" defer></script>
+</head>
+<body>
+    <header class="hero" id="hero">
+        <div class="file-header">
+            <span>SPIS / INTERNÍ</span>
+            <span>ODBOR MĚŘÍTEK</span>
+            <span>VERTIKÁLNÍ MĚSTO</span>
+        </div>
+
+        <div class="dossier">
+            <div class="folder-tabs">
+                <button type="button" class="case active" data-copy="Mikroformát zmenší Vlastu, otevře ventilační trasy a promění stoly v celé platforming mapy.">Mikroformát</button>
+                <button type="button" class="case" data-copy="Expanze rozšíří hráče i objekty, čímž odhalí nové mosty a rozdrtí lehké bariéry.">Expanze</button>
+                <button type="button" class="case" data-copy="Tlakové razítko mění hustotu vybraných objektů a vytváří riskantní skokové zkratky.">Tlak</button>
+            </div>
+
+            <div class="dossier-grid">
+                <section class="summary-card">
+                    <p class="eyebrow">Ministerstvo Měřítek</p>
+                    <h1>Město tě přeměří, pokud ho nepřeměříš dřív ty.</h1>
+                    <p>
+                        Vlasta Pečeť ukradl zakázané razítko a zjistil, že architektura města není pevná.
+                        Je jen administrativně schválená. V každém runu mění velikost vlastního těla i celých prostorů.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="#cta">Otevřít utajenou složku</a>
+                        <a class="button secondary" href="#systemy">Studovat manipulace</a>
+                    </div>
+                </section>
+
+                <section class="city-canvas">
+                    <canvas id="dossier-canvas" width="520" height="420" aria-label="Animované vertikální město spisu"></canvas>
+                    <p class="case-copy" id="case-copy">Mikroformát zmenší Vlastu, otevře ventilační trasy a promění stoly v celé platforming mapy.</p>
+                </section>
+
+                <aside class="fact-column">
+                    <article><span>Hrdina</span><strong>Vlasta Pečeť</strong></article>
+                    <article><span>Hook</span><strong>Změna měřítka</strong></article>
+                    <article><span>Styl webu</span><strong>Tajný spis a dossier</strong></article>
+                </aside>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section world" id="svet">
+            <div class="section-heading">
+                <p class="eyebrow">O světě</p>
+                <h2>Vertikální město se neřídí gravitací ani ekonomikou. Řídí se administrativním souhlasem.</h2>
+            </div>
+            <div class="evidence-grid">
+                <article><h3>Přízemní registry</h3><p>Nejnižší vrstva města drží fronty, razítka a první fyzické hranice prostoru.</p></article>
+                <article><h3>Nekonečné stoly</h3><p>Ve vyšších patrech se kancelářský nábytek mění v celé platforming biomy.</p></article>
+                <article><h3>Pneumatické šachty</h3><p>Městská logistika funguje jako traversal systém i jako zdroj nebezpečných změn měřítka.</p></article>
+            </div>
+        </section>
+
+        <section class="section systems" id="systemy">
+            <div class="section-heading">
+                <p class="eyebrow">Gameplay s měřítkem</p>
+                <h2>Razítko nepřidává damage. Přepisuje fyziku, čitelnost i význam obyčejných předmětů.</h2>
+            </div>
+            <div class="evidence-grid">
+                <article><h3>Zmenšení</h3><p>Ventilace, šuplíky a drolící se spisy se mění v rychlé zkratky i bojové hádanky.</p></article>
+                <article><h3>Zvětšení</h3><p>Vlasta může přerůst nábytek, rozlámat lehké bariéry a číst město z úplně nové výšky.</p></article>
+                <article><h3>Hustota</h3><p>Některé objekty nelze jen zvětšit. Je třeba jim změnit váhu, aby se vůbec chovaly jako platformy.</p></article>
+            </div>
+        </section>
+
+        <section class="section story" id="pribeh">
+            <div class="section-heading">
+                <p class="eyebrow">Případ a příběh</p>
+                <h2>Vlasta nebyl rebel. Byl přesně ten člověk, kterého systém nepovažuje za hrozbu.</h2>
+            </div>
+            <div class="evidence-grid">
+                <article><h3>Ukradené razítko</h3><p>Jedna chyba v archivu stačí, aby se město začalo chovat jinak než schválený formulář.</p></article>
+                <article><h3>Sekretářka Alma</h3><p>Neformální spojka, která krade složky bossům a pomáhá rozkrývat skutečný původ zákona o měřítku.</p></article>
+                <article><h3>Velký Tajemník</h3><p>Finální autorita, která věří, že velikost člověka musí zůstat přidělena shora.</p></article>
+            </div>
+        </section>
+
+        <section class="section cast" id="postavy">
+            <div class="section-heading">
+                <p class="eyebrow">Postavy</p>
+                <h2>Místo party fantasy hrdinů zde stojí zaměstnanci, inspektoři a samotný archiv.</h2>
+            </div>
+            <div class="evidence-grid">
+                <article><h3>Vlasta Pečeť</h3><p>Nenápadný referent s aktovkou plnou zakázaných formulářů a razítkovou rukavicí.</p></article>
+                <article><h3>Sekretářka Alma</h3><p>Vypadá jako vedlejší postava kanceláře, ale je klíčová pro přežití v systému.</p></article>
+                <article><h3>Archiv Města</h3><p>Polovědomý spis, který si pamatuje vše, co bylo kdy administrativně vymazáno.</p></article>
+            </div>
+        </section>
+
+        <section class="section biomes" id="biomy">
+            <div class="section-heading">
+                <p class="eyebrow">Biomy</p>
+                <h2>Každé patro města je jiný úřední žánr a jiná hra s proporcí.</h2>
+            </div>
+            <div class="evidence-grid four">
+                <article><h3>Registr Podatelny</h3><p>Fronty, přepážky a první inspektoři velikosti.</p></article>
+                <article><h3>Pneumatické Šachty</h3><p>Úzké, rychlé a nebezpečné koridory mezi odděleními.</p></article>
+                <article><h3>Kanceláře Nekonečných Stolů</h3><p>Obří desky, psací stroje a šuplíky jako celé městské čtvrti.</p></article>
+                <article><h3>Věž Redakcí</h3><p>Nejvyšší administrativní vrstva, kde se realita začíná přepisovat korekturou.</p></article>
+            </div>
+        </section>
+
+        <section class="section enemies" id="nepratele">
+            <div class="section-heading">
+                <p class="eyebrow">Nepřátelé a bossové</p>
+                <h2>Bestiář je plný úřední logiky a nikdy nesklouzává do generické městské dystopie.</h2>
+            </div>
+            <div class="evidence-grid">
+                <article><h3>Razítkoví pátrači</h3><p>Hlídají neautorizované změny měřítka a okamžitě uzavírají průchody kolem hráče.</p></article>
+                <article><h3>Vedoucí Formátu A0</h3><p>Boss, který roztahuje arénu do absurdních rozměrů a nutí přepínat mezi mikrem a expanzí.</p></article>
+                <article><h3>Velký Tajemník Měřítka</h3><p>Finální autorita ovládající celé město jako kancelářský nástroj.</p></article>
+            </div>
+        </section>
+
+        <section class="section reasons" id="proc">
+            <div class="section-heading">
+                <p class="eyebrow">Proč hrát</p>
+                <h2>Protože měřítko tu není gimmick. Je to základní gramatika level designu.</h2>
+            </div>
+            <div class="evidence-grid">
+                <article><p>Každý biom mění význam běžných objektů podle velikosti těla i předmětu.</p></article>
+                <article><p>Dossier styl dává hře vlastní identitu a dělá z expozice součást světa.</p></article>
+                <article><p>Vertikální město působí byrokraticky, ale stále dynamicky a hratelně.</p></article>
+            </div>
+        </section>
+
+        <section class="section roadmap" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">Roadmap</p>
+                <h2>Další milníky se otevírají jako nové složky případu.</h2>
+            </div>
+            <div class="evidence-grid">
+                <article><h3>Q2 2026</h3><p>Vertikální slice s podatelkou, jedním inspektorem a základní sadou razítek.</p></article>
+                <article><h3>Q4 2026</h3><p>Demo s nekonečnými stoly a první veřejně hratelnou změnou hustoty objektů.</p></article>
+                <article><h3>Q2 2027</h3><p>Plná verze s věží redakcí a celým spisem města.</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-cta" id="cta">
+        <div>
+            <p class="eyebrow">Finální CTA</p>
+            <h2>Zažádej o přístup do interního testu a sleduj další únik dokumentů z ministerstva.</h2>
+        </div>
+        <div class="hero-actions">
+            <a class="button primary" href="#hero">Přidat na wishlist</a>
+            <a class="button secondary" href="#systemy">Otevřít spis</a>
+        </div>
+    </footer>
+</body>
+</html>

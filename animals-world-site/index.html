@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klenba Popela</title>
+    <meta name="description" content="Klenba Popela je 2D platformer roguelike o zvonopevcovi, který ladí prokleté zvony v živé sopečné katedrále.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="script2Dgame.js" defer></script>
+</head>
+<body>
+    <div class="ember-field" aria-hidden="true"></div>
+
+    <header class="hero" id="hero">
+        <div class="hero-topline">
+            <span>2D platformer roguelike</span>
+            <span>Temná sakrální akce</span>
+            <span>Vertikální výstup</span>
+        </div>
+
+        <div class="hero-copy">
+            <p class="eyebrow">Klenba Popela</p>
+            <h1>Rozezvuč katedrálu, která si pamatuje každý hřích.</h1>
+            <p class="hero-text">
+                Ve výhni zvonů leží město pod popelem. Každý tón mění chodby, otvírá nové výtahy
+                a probouzí jiné světce. V každém runu ladíš jinou cestu vzhůru.
+            </p>
+            <div class="hero-actions">
+                <a class="button primary" href="#cta">Chci vstoupit do playtestu</a>
+                <a class="button secondary" href="#svet">Prozkoumat klenbu</a>
+            </div>
+        </div>
+
+        <div class="sanctum" data-parallax>
+            <canvas id="bell-canvas" width="520" height="520" aria-label="Animovaný zvon Klenby Popela"></canvas>
+            <div class="sanctum-core">
+                <p class="core-label">Aktivní ladění</p>
+                <p class="core-value" id="tone-name">Popelavý chorál</p>
+                <p class="core-copy" id="tone-copy">Dlouhé ozvěny zahušťují vzduch a prodlužují úder kladiva do prostoru.</p>
+            </div>
+            <div class="tone-switches">
+                <button type="button" class="tone active" data-tone="Popelavý chorál" data-copy="Dlouhé ozvěny zahušťují vzduch a prodlužují úder kladiva do prostoru.">Popel</button>
+                <button type="button" class="tone" data-tone="Žhavý přeliv" data-copy="Žhavé tóny urychlí dash, rozžhaví plošiny a roztaví obranné vrstvy nepřátel.">Žár</button>
+                <button type="button" class="tone" data-tone="Bouřná klenba" data-copy="Bouřné ladění posílá blesk po řetězech zvonice a otevírá vzdušné cesty vysoko nad chrámem.">Bouře</button>
+            </div>
+            <nav class="ring-nav" aria-label="Hlavní sekce">
+                <a href="#svet">Svět</a>
+                <a href="#pribeh">Příběh</a>
+                <a href="#postavy">Postavy</a>
+                <a href="#biomy">Biomy</a>
+                <a href="#nepratele">Bossové</a>
+                <a href="#roadmap">Roadmap</a>
+            </nav>
+        </div>
+
+        <div class="hero-stats">
+            <article>
+                <span>Hook</span>
+                <strong>Rezonance mění level</strong>
+            </article>
+            <article>
+                <span>Hrdina</span>
+                <strong>Radan, vyhnaný zvonopevec</strong>
+            </article>
+            <article>
+                <span>Loop</span>
+                <strong>Výstup, ladění, návrat do kovárny</strong>
+            </article>
+        </div>
+    </header>
+
+    <main>
+        <section class="section resonance" id="gameplay">
+            <div class="section-heading">
+                <p class="eyebrow">Rezonance</p>
+                <h2>Každý tón mění nejen build, ale i samotnou stavbu runu.</h2>
+            </div>
+            <div class="resonance-grid">
+                <article class="resonance-card">
+                    <span>01</span>
+                    <h3>Zvonové uzly</h3>
+                    <p>Každý uzel přeladí část katedrály. Otevře nový výtah, zlomí most nebo spustí pohyblivou kazatelnu.</p>
+                </article>
+                <article class="resonance-card">
+                    <span>02</span>
+                    <h3>Kotva z kadidla</h3>
+                    <p>Radanova zbraň je těžká i přesná. Umožní slam, zavěšení pod trámem a krátké přitažení k nepříteli.</p>
+                </article>
+                <article class="resonance-card">
+                    <span>03</span>
+                    <h3>Meta-kovárna</h3>
+                    <p>Jazýčky zvonů se taví v hubu a odemykají nové startovní tóny, relikvie i průchody do vyšších pater.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section world" id="svet">
+            <div class="section-heading narrow">
+                <p class="eyebrow">O světě</p>
+                <h2>Katedrála nad sopkou není kulisa. Je to organismus, který si pamatuje své věřící.</h2>
+            </div>
+            <div class="world-layout">
+                <article class="world-panel large">
+                    <p>
+                        Klenba vyrůstá z bronzu, kostí a lávy. Pod ní leží město, které dávno zmizelo pod popelem.
+                        Nahoře stále visí zvony, jež uchovaly cizí hlasy. Každý boss hlídá jiný falešný tón minulosti.
+                    </p>
+                </article>
+                <article class="world-panel">
+                    <h3>Rytmus výstupu</h3>
+                    <p>Run začíná v Podlodí Popela a žene tě vzhůru přes výtahy, varhany a bouřné lávky až k nejvyšší zvonici.</p>
+                </article>
+                <article class="world-panel">
+                    <h3>Rozhodnutí</h3>
+                    <p>Nejde o záchranu světa. Rozhodneš, který hlas bude po staletích první, kdo z katedrály zazní ven.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section story" id="pribeh">
+            <div class="section-heading">
+                <p class="eyebrow">Příběh</p>
+                <h2>Radan kdysi ladil zvony pro město. Teď stoupá jako vyhnanec, aby zjistil, kdo byl umlčen.</h2>
+            </div>
+            <div class="timeline">
+                <article>
+                    <span>Vyhnanství</span>
+                    <p>Radan odmítl poslední příkaz chóru a byl poslán pod klenbu bez hlasu i jména.</p>
+                </article>
+                <article>
+                    <span>První tón</span>
+                    <p>Když rozezní popraskaný zvon, část katedrály se přeskládá a odhalí, že svatyně stále žije.</p>
+                </article>
+                <article>
+                    <span>Poslední hlas</span>
+                    <p>Každý přeladěný boss odhaluje, kdo záměrně vymazal minulost města a přetavil ji v liturgii.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section cast" id="postavy">
+            <div class="section-heading">
+                <p class="eyebrow">Postavy</p>
+                <h2>Lidé, relikvie a bytosti, které drží klenbu pohromadě.</h2>
+            </div>
+            <div class="cast-grid">
+                <article>
+                    <h3>Radan</h3>
+                    <p>Vyhnaný zvonopevec se zbrojí od kouře, těžkou kotvou a svalovou siluetou řemeslníka.</p>
+                </article>
+                <article>
+                    <h3>Sestra Míra z Popela</h3>
+                    <p>Archivářka starých chorálů. Mezi runy překládá nápisy a otevírá nové větve příběhu.</p>
+                </article>
+                <article>
+                    <h3>Dítě Pece</h3>
+                    <p>Vosková bytost, která se směje při tavení jazýčků zvonů a stará se o meta-progres kovárny.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section biomes" id="biomy">
+            <div class="section-heading">
+                <p class="eyebrow">Biomy</p>
+                <h2>Každé patro katedrály je jiná liturgie materiálu a pohybu.</h2>
+            </div>
+            <div class="biome-columns">
+                <article>
+                    <h3>Podlodí Popela</h3>
+                    <p>Dusné chodby se šikmými schodišti, první uzly a popelové proudy.</p>
+                </article>
+                <article>
+                    <h3>Bronzové Výtahy</h3>
+                    <p>Kyvadla, mechanické výsuvy a těžké šachty plné vertikálních rozhodnutí.</p>
+                </article>
+                <article>
+                    <h3>Varhanní Žár</h3>
+                    <p>Lávové varhany, prudké výdechy ohně a kovové platformy na hraně tavení.</p>
+                </article>
+                <article>
+                    <h3>Bouřná Zvonice</h3>
+                    <p>Otevřený prostor vysoko nad městem. Vzduch, blesky a dlouhé skoky mezi trámy.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section bestiary" id="nepratele">
+            <div class="section-heading">
+                <p class="eyebrow">Nepřátelé a bossové</p>
+                <h2>Bestiář je liturgický, těžký a nezaměnitelně sakrální.</h2>
+            </div>
+            <div class="bestiary-grid">
+                <article>
+                    <h3>Kadidloví psi</h3>
+                    <p>Lovci zavěšení na řetězech, kteří útočí ze spodních pater a zahalují arénu kouřem.</p>
+                </article>
+                <article>
+                    <h3>Matka Prasklého Tónu</h3>
+                    <p>Boss prvního výstupu. Její hlas rozbíjí podlahy a nutí tě bojovat ve vertikálních vrstvách.</p>
+                </article>
+                <article>
+                    <h3>Král Škvarových Kleneb</h3>
+                    <p>Finální zkouška, kde se střídá oheň, blesk a zhroucené chóry v jediné monumentální aréně.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section reasons" id="proc">
+            <div class="section-heading">
+                <p class="eyebrow">Proč hrát</p>
+                <h2>Tahle hra stojí na tónu, materiálu a pocitu těžkého výstupu.</h2>
+            </div>
+            <div class="reasons-list">
+                <p>Každý run přetváří level skrze zvuk, ne jen přes loot tabulku.</p>
+                <p>Souboje jsou pomalé, úderné a fyzické, ale traversal zůstává svižný a vertikální.</p>
+                <p>Klenba má vlastní charakter. Nepůsobí jako soubor biomů, ale jako jeden obrovský sakrální organismus.</p>
+            </div>
+        </section>
+
+        <section class="section gallery" id="galerie">
+            <div class="section-heading">
+                <p class="eyebrow">Galerie motivů</p>
+                <h2>Vizuální pilíře, na kterých stojí identita Klenby Popela.</h2>
+            </div>
+            <div class="gallery-grid">
+                <article><span>Žhnoucí bronz</span><p>Materiál, který nikdy není čistý a stále nese paměť žáru.</p></article>
+                <article><span>Vysoké oblouky</span><p>Vertikální kompozice podporuje pocit výstupu a neustálého tlaku shora.</p></article>
+                <article><span>Zpěv v kameni</span><p>Texty, rytina a reliéfy nejsou dekorace, ale aktivní součást světa.</p></article>
+            </div>
+        </section>
+
+        <section class="section roadmap" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">Roadmap</p>
+                <h2>Vývoj postupuje jako oprava samotné katedrály.</h2>
+            </div>
+            <div class="roadmap-steps">
+                <article>
+                    <strong>Q2 2026</strong>
+                    <p>Uzavřený combat slice s Podlodím Popela a prvními rezonancemi.</p>
+                </article>
+                <article>
+                    <strong>Q3 2026</strong>
+                    <p>Veřejné demo s Bronzovými Výtahy, jedním bossem a meta-kovárnou.</p>
+                </article>
+                <article>
+                    <strong>Q1 2027</strong>
+                    <p>Plná klenba, všech pět biomů, více ladění a rozhodovací finále.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="cta-footer" id="cta">
+        <div>
+            <p class="eyebrow">Finální CTA</p>
+            <h2>Nech si poslat první tón, až se klenba otevře.</h2>
+        </div>
+        <div class="cta-actions">
+            <a class="button primary" href="#hero">Přidat na wishlist</a>
+            <a class="button secondary" href="#roadmap">Sledovat vývoj</a>
+        </div>
+    </footer>
+</body>
+</html>

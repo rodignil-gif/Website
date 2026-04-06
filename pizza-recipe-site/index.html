@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mauzoleum Pískových Žil</title>
+    <meta name="description" content="Mauzoleum Pískových Žil je 2D platformer roguelike o preparátorce, která tuneluje pohyblivou nekropolí živou murénou.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="script2Dgame.js" defer></script>
+</head>
+<body>
+    <header class="hero" id="hero">
+        <div class="map-ribbon">
+            <span>EXPEDICE // AKTIVNÍ</span>
+            <span>NEKROPOLE POD DUNAMI</span>
+            <span>TRASY SE MĚNÍ KAŽDOU NOC</span>
+        </div>
+
+        <div class="map-hero">
+            <div class="map-copy">
+                <p class="eyebrow">Mauzoleum Pískových Žil</p>
+                <h1>Rozřež mapu dřív, než pohyblivá hrobka přepíše své vlastní stěny.</h1>
+                <p>
+                    Saida se spojí s fosilní pískovou murénou a proniká nekropolí, která každou noc mění svůj plán.
+                    Hra stojí na destrukci terénu, kartografii a radosti z objevování cest, které ještě před chvílí neexistovaly.
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#cta">Připojit se k expedici</a>
+                    <a class="button secondary" href="#trasy">Zobrazit trasy</a>
+                </div>
+            </div>
+
+            <div class="map-board">
+                <canvas id="map-canvas" width="620" height="420" aria-label="Animovaná expedicní mapa mauzolea"></canvas>
+                <div class="route-pins" id="trasy">
+                    <button type="button" class="pin active" data-copy="Bílý tábor je nejbezpečnější uzel, ale skrývá jen část pravdy o pohybu nekropole.">Tábor</button>
+                    <button type="button" class="pin" data-copy="Fosilní roura umožní tunelem obejít celé patro, pokud Saida správně čte dutiny v písku.">Roura</button>
+                    <button type="button" class="pin" data-copy="Jádro pískových žil reaguje na pohyb murény a mění topografii v reálném čase.">Jádro</button>
+                </div>
+                <p class="route-copy" id="route-copy">Bílý tábor je nejbezpečnější uzel, ale skrývá jen část pravdy o pohybu nekropole.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section world" id="svet">
+            <div class="section-heading">
+                <p class="eyebrow">O světě</p>
+                <h2>Nekropole není jen dávný hrob. Je to migrující krajina z kostí, písku a route linek.</h2>
+            </div>
+            <div class="route-grid">
+                <article><h3>Živá mapa</h3><p>Každý run posouvá komory, tunely i dutiny, takže výprava nikdy nečte stejný plán dvakrát.</p></article>
+                <article><h3>Expediční tábor</h3><p>Hub se rozrůstá o archiv, pracovní stůl a nové mapové legendy, které zpřesňují další průchody.</p></article>
+                <article><h3>Kef</h3><p>Fosilní muréna není jen zbraň. Slouží jako kompas pro měkké stěny a skryté prázdné kapsy v písku.</p></article>
+            </div>
+        </section>
+
+        <section class="section routes" id="hook">
+            <div class="section-heading">
+                <p class="eyebrow">Gameplay a destrukce</p>
+                <h2>Tady se nečeká, až level design dovolí cestu. Tady ji fyzicky vyrýváš do terénu.</h2>
+            </div>
+            <div class="route-grid">
+                <article><h3>Tunelování</h3><p>Kef proráží měkké stěny, odhaluje skryté komory a vytváří diagonální zkratky.</p></article>
+                <article><h3>Topografie</h3><p>Mapa není pozadí. Sleduješ vrstevnice, dutiny a nánosy, protože z nich čteš další možnosti.</p></article>
+                <article><h3>Route buildy</h3><p>Každá varianta murény mění typ rozkopání: široký průlom, přesný vrt nebo detekci fosilních žil.</p></article>
+            </div>
+        </section>
+
+        <section class="section story" id="pribeh">
+            <div class="section-heading">
+                <p class="eyebrow">Příběh</p>
+                <h2>Saida nehledá korunu. Snaží se vrátit jména mrtvým tím, že znovu skládá jejich ztracené cesty.</h2>
+            </div>
+            <div class="route-grid">
+                <article><h3>Preparátorka</h3><p>Saida rozumí kostem, fosiliím i tomu, jak se historie ukládá do materiálu.</p></article>
+                <article><h3>Stařec Mapník</h3><p>Strážce tábora zná staré route lineky, ale chybí mu odvaha jít do pohyblivého jádra znovu.</p></article>
+                <article><h3>Královna Sutě</h3><p>Finální mysl nekropole brání hrobku ne nenávistí, ale touhou zůstat navždy nečitelná.</p></article>
+            </div>
+        </section>
+
+        <section class="section cast" id="postavy">
+            <div class="section-heading">
+                <p class="eyebrow">Postavy</p>
+                <h2>Expedice stojí na lidech, kteří čtou kosti, mapy a prázdná místa mezi nimi.</h2>
+            </div>
+            <div class="route-grid">
+                <article><h3>Saida</h3><p>Preparátorka a terénní kreslířka, která čte historii z materiálu stejně dobře jako z mapy.</p></article>
+                <article><h3>Kef</h3><p>Fosilní muréna spojená se Saídou, zbraň i průzkumný nástroj pro měkké stěny a dutiny.</p></article>
+                <article><h3>Stařec Mapník</h3><p>Správce tábora, jenž udržuje archiv tras a ví, že některé cesty se otevírají jen jednou za generaci.</p></article>
+            </div>
+        </section>
+
+        <section class="section biomes" id="biomy">
+            <div class="section-heading">
+                <p class="eyebrow">Biomy</p>
+                <h2>Každá vrstva je jiná kombinace archeologie, pohyblivého písku a pohřbené mechaniky.</h2>
+            </div>
+            <div class="route-grid four">
+                <article><h3>Předsálí Sarkofágů</h3><p>První zlomové komory s křehkými stěnami a fosilními dutinami.</p></article>
+                <article><h3>Duny Pod Klenbou</h3><p>Široké horizontální tratě, které se dají přepsat vlastním tunelem.</p></article>
+                <article><h3>Fosilní Roura Králů</h3><p>Vertikální biome s úzkými průduchy a prudkými výjezdy z hloubky.</p></article>
+                <article><h3>Jádro Pískových Žil</h3><p>Místo, kde se mapa sama stává aktivním protivníkem.</p></article>
+            </div>
+        </section>
+
+        <section class="section enemies" id="nepratele">
+            <div class="section-heading">
+                <p class="eyebrow">Nepřátelé a bossové</p>
+                <h2>Bestiář vyrůstá z mrtvých materiálů a pouštních proudů, ne z běžných fantasy ras.</h2>
+            </div>
+            <div class="route-grid">
+                <article><h3>Prachoví písaři</h3><p>Přepisují mapové značky a záměrně matou orientaci v otevřených komorách.</p></article>
+                <article><h3>Archivářka Duny</h3><p>Boss, který vrství písek přes tvoje vlastní tunely a nutí vytvářet trasu znovu.</p></article>
+                <article><h3>Fosilní Leviatan</h3><p>Obří kosterný tvor pohybující se mimo běžné stěny arény, protože sám žije v terénu.</p></article>
+            </div>
+        </section>
+
+        <section class="section reasons" id="proc">
+            <div class="section-heading">
+                <p class="eyebrow">Proč hrát</p>
+                <h2>Mauzoleum Pískových Žil nabízí vzácný pocit, že mapa je něco, co si hráč skutečně dobývá.</h2>
+            </div>
+            <div class="route-grid">
+                <article><p>Destrukce prostředí je hlavní traversal systém, ne vedlejší efektní mechanika.</p></article>
+                <article><p>Expediční mapová estetika dává hře vlastní identitu od prvního pohledu.</p></article>
+                <article><p>Hub i meta-progrese rostou jako skutečný archeologický projekt s vlastní dokumentací.</p></article>
+            </div>
+        </section>
+
+        <section class="section roadmap" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">Roadmap</p>
+                <h2>Další milníky se otevírají jako nově odkryté vrstvy pod dunami.</h2>
+            </div>
+            <div class="route-grid">
+                <article><h3>Q2 2026</h3><p>První výpravný slice s táborem a tunelem skrze předsálí sarkofágů.</p></article>
+                <article><h3>Q4 2026</h3><p>Veřejné demo s fosilní rourou, route linekami a prvním velkým bossem.</p></article>
+                <article><h3>Q2 2027</h3><p>Plná verze s pohyblivým jádrem a kompletní mapovou kampaní nekropole.</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-cta" id="cta">
+        <div>
+            <p class="eyebrow">Finální CTA</p>
+            <h2>Připoj se k expedici a sleduj, kdy se otevře další odkrytá komora mauzolea.</h2>
+        </div>
+        <div class="hero-actions">
+            <a class="button primary" href="#hero">Přidat na wishlist</a>
+            <a class="button secondary" href="#trasy">Rozvinout mapu</a>
+        </div>
+    </footer>
+</body>
+</html>

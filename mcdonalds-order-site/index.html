@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucerna Dvou Měsíců</title>
+    <meta name="description" content="Lucerna Dvou Měsíců je 2D platformer roguelike o pastevkyni můr, která přepíná světlo a stín jedním plamenem.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="script2Dgame.js" defer></script>
+</head>
+<body>
+    <header class="hero" id="hero">
+        <div class="lantern-nav">
+            <a href="#svet">Svět</a>
+            <a href="#svetlo">Světlo a stín</a>
+            <a href="#postavy">Postavy</a>
+            <a href="#biomy">Biomy</a>
+            <a href="#roadmap">Roadmap</a>
+        </div>
+
+        <div class="panorama">
+            <div class="hero-copy">
+                <p class="eyebrow">Lucerna Dvou Měsíců</p>
+                <h1>Jediný plamen rozhoduje, kterou verzi světa právě dovolíš existovat.</h1>
+                <p>
+                    Běla vede živou lucernu krajem, kde se denní a zatměná vrstva téhož místa přelévají přes sebe.
+                    Každý run stojí na jemném přepínání světla, které mění cesty, nepřátele i náladu celé krajiny.
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#cta">Vstoupit do nočního playtestu</a>
+                    <a class="button secondary" href="#svetlo">Prohlédnout přepínání vrstev</a>
+                </div>
+            </div>
+
+            <div class="moon-stage">
+                <canvas id="moon-canvas" width="720" height="360" aria-label="Panoramatická scéna se dvěma měsíci"></canvas>
+                <div class="moon-switches">
+                    <button type="button" class="moon active" data-copy="Denní vrstva odkrývá bezpečné plošiny, bylinkové mosty a krotší faunu.">Denní vrstva</button>
+                    <button type="button" class="moon" data-copy="Zatměná vrstva otevírá stínové průchody, ale mění nepřátele v agresivnější varianty.">Zatměná vrstva</button>
+                </div>
+                <p class="moon-copy" id="moon-copy">Denní vrstva odkrývá bezpečné plošiny, bylinkové mosty a krotší faunu.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section world" id="svet">
+            <div class="section-heading">
+                <p class="eyebrow">O světě</p>
+                <h2>Kraj mezi dvěma měsíci je jemný, ale každé světlo v něm něco odebírá a něco vrací.</h2>
+            </div>
+            <div class="glow-grid">
+                <article><h3>Zahrady Měsíčního Mléka</h3><p>Úvodní biom plný světelných hladin a klidných mostů, které se při zatmění rozpadnou.</p></article>
+                <article><h3>Osada luceren</h3><p>Hub funguje jako tichá zahrada, kde se staráš o můry, plameny a paměť kraje.</p></article>
+                <article><h3>Dva oběhy</h3><p>Celá hra stojí na tom, že svět není zlý. Jen se neustále překlápí mezi dvěma pravdami.</p></article>
+            </div>
+        </section>
+
+        <section class="section light" id="svetlo">
+            <div class="section-heading">
+                <p class="eyebrow">Světlo a stín</p>
+                <h2>Přepnutí vrstvy není přepínač skinu. Je to základ celého platformingu.</h2>
+            </div>
+            <div class="glow-grid">
+                <article><h3>Průchody</h3><p>Některé cesty existují jen za dne, jiné se otevřou pouze ve stínu druhého měsíce.</p></article>
+                <article><h3>Fauna</h3><p>Stejný nepřítel se v obou vrstvách chová jinak, a proto se mění i rytmus soubojů.</p></article>
+                <article><h3>Plameny</h3><p>Barva lucerny určuje build: delší přepnutí, rychlejší recharge nebo silnější záblesk.</p></article>
+            </div>
+        </section>
+
+        <section class="section story" id="pribeh">
+            <div class="section-heading">
+                <p class="eyebrow">Příběh</p>
+                <h2>Běla není bojovník z legend. Je to pastevkyně, která se odmítla vzdát světla, jež nikdo jiný neunese.</h2>
+            </div>
+            <div class="glow-grid">
+                <article><h3>Živá lucerna</h3><p>Lun není předmět, ale bytost uvnitř plamene, která někdy vede Bělu stejně jako ona jeho.</p></article>
+                <article><h3>Můří stezky</h3><p>Každá nová linie můr odemyká další vrstvu paměti a dopisuje historii kraje.</p></article>
+                <article><h3>Druhý měsíc</h3><p>Finální střet není o zabití zla, ale o rozhodnutí, jak spolu budou oba oběhy dál koexistovat.</p></article>
+            </div>
+        </section>
+
+        <section class="section cast" id="postavy">
+            <div class="section-heading">
+                <p class="eyebrow">Postavy</p>
+                <h2>Kraj obývají jemné, ale silně zapamatovatelné postavy.</h2>
+            </div>
+            <div class="glow-grid">
+                <article><h3>Běla</h3><p>Pastevkyně můr s dlouhým pláštěm, lucernou a pohybem založeným na lehkém skluzu i odrazu.</p></article>
+                <article><h3>Lun</h3><p>Živý plamen, jehož nálada mění tón některých scén i parametry přepnutí vrstev.</p></article>
+                <article><h3>Starý Včelař Stínů</h3><p>Tichý mentor, který rozumí zatměné vrstvě lépe, než je mu příjemné přiznat.</p></article>
+            </div>
+        </section>
+
+        <section class="section biomes" id="biomy">
+            <div class="section-heading">
+                <p class="eyebrow">Biomy</p>
+                <h2>Biomy se čtou horizontálně jako krajina, ne jako izolované komory.</h2>
+            </div>
+            <div class="glow-grid four">
+                <article><h3>Les Zatmělých Větví</h3><p>Stíny se tu pohybují dřív než nepřátelé a některé plošiny existují jen krátce.</p></article>
+                <article><h3>Schody Svícnu</h3><p>Vertikální průchod osvětlený rytmickými kapsami světla a stínu.</p></article>
+                <article><h3>Jezera Třpytu</h3><p>Hladiny fungují jako navigační mapy, ale jen v jedné z vrstev.</p></article>
+                <article><h3>Věž Dvou Oběhů</h3><p>Finální panoramatický biome, kde se celé patro mění jedním přepnutím plamene.</p></article>
+            </div>
+        </section>
+
+        <section class="section enemies" id="nepratele">
+            <div class="section-heading">
+                <p class="eyebrow">Nepřátelé a bossové</p>
+                <h2>Bestiář vyrůstá z přírody a světla, ne z mechanické agrese.</h2>
+            </div>
+            <div class="glow-grid">
+                <article><h3>Stínoví srnci</h3><p>V denní vrstvě plaší, ve stínové prudce nabíhají a zavírají laterální prostor.</p></article>
+                <article><h3>Můří Vévodkyně</h3><p>Boss, jehož útoky fungují jinak v každém světle a nutí ke klidnému čtení patternů.</p></article>
+                <article><h3>Pastýř Prázdného Druhého Měsíce</h3><p>Finální entita, která se snaží uzamknout svět jen do jediné vrstvy navždy.</p></article>
+            </div>
+        </section>
+
+        <section class="section reasons" id="proc">
+            <div class="section-heading">
+                <p class="eyebrow">Proč hrát</p>
+                <h2>Lucerna Dvou Měsíců spojuje poetický worldbuilding s mechanicky přesným systémem přepínání.</h2>
+            </div>
+            <div class="glow-grid">
+                <article><p>Dualita světla a stínu ovlivňuje traversal i boj bez zbytečné přeplácanosti.</p></article>
+                <article><p>Panoramatická kompozice dává webu i hře melancholický, téměř malířský rytmus.</p></article>
+                <article><p>Meta-progrese roste skrze lucernovou dílnu, zahrady a nové linie můr.</p></article>
+            </div>
+        </section>
+
+        <section class="section roadmap" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">Roadmap</p>
+                <h2>Vývoj se pohybuje po obězích stejně jako kraj samotný.</h2>
+            </div>
+            <div class="glow-grid">
+                <article><h3>Q2 2026</h3><p>První horizontální slice s jednou světelnou disciplínou a lesem zatmělých větví.</p></article>
+                <article><h3>Q4 2026</h3><p>Demo s věží svícnu, dvěma variantami boss patternů a hub zahradou.</p></article>
+                <article><h3>Q2 2027</h3><p>Plná verze se všemi oběhy a finálním rozhodnutím o druhém měsíci.</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-cta" id="cta">
+        <div>
+            <p class="eyebrow">Finální CTA</p>
+            <h2>Rozsviť lucernu a sleduj, kdy se otevře první veřejná noční cesta.</h2>
+        </div>
+        <div class="hero-actions">
+            <a class="button primary" href="#hero">Přidat na wishlist</a>
+            <a class="button secondary" href="#svetlo">Zobrazit vrstvy</a>
+        </div>
+    </footer>
+</body>
+</html>

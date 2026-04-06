@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap");
+
+:root {
+    --paper: #f6f0e6;
+    --sea: #5e8f8d;
+    --coral: #d37d62;
+    --ink: #22414a;
+    --soft-ink: #5f7479;
+    --line: rgba(34, 65, 74, 0.15);
+    --accent-shift: 0deg;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: "Outfit", sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 12% 12%, rgba(211, 125, 98, 0.18), transparent 28%),
+        linear-gradient(180deg, #fbf7f0 0%, #efe8dd 100%);
+}
+
+.hero,
+.section,
+.footer-cta {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.top-nav,
+.hero-layout,
+.hero-actions,
+.ink-switches,
+.curator,
+.story-ribbon,
+.postcard-grid,
+.museum-grid,
+.biome-posters,
+.reason-columns,
+.footer-cta {
+    display: grid;
+    gap: 18px;
+}
+
+.top-nav {
+    grid-template-columns: repeat(5, max-content);
+    justify-content: end;
+    padding-top: 24px;
+}
+
+.top-nav a {
+    color: var(--soft-ink);
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.hero {
+    padding: 24px 0 70px;
+}
+
+.hero-layout {
+    grid-template-columns: 1fr 0.95fr;
+    align-items: center;
+    min-height: calc(100vh - 70px);
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    color: var(--sea);
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    line-height: 1;
+}
+
+h1 {
+    font-size: clamp(3.2rem, 7vw, 6.1rem);
+    max-width: 10ch;
+    margin: 10px 0 18px;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    max-width: 14ch;
+}
+
+p {
+    line-height: 1.75;
+    color: var(--soft-ink);
+}
+
+.button {
+    display: inline-flex;
+    padding: 14px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.button:hover { transform: translateY(-2px); }
+.primary { background: linear-gradient(135deg, var(--sea), #7cb4ad); color: white; box-shadow: 0 12px 24px rgba(94, 143, 141, 0.22); }
+.secondary { border: 1px solid var(--line); color: var(--ink); background: rgba(255, 255, 255, 0.5); }
+
+.hero-actions {
+    grid-template-columns: repeat(2, max-content);
+    margin-top: 28px;
+}
+
+.atlas-board,
+.panel,
+.postcard,
+.museum-grid article,
+.biome-posters article {
+    background: rgba(255, 255, 255, 0.66);
+    border: 1px solid rgba(34, 65, 74, 0.12);
+    border-radius: 30px;
+    box-shadow: 0 18px 40px rgba(80, 107, 112, 0.12);
+}
+
+.atlas-board {
+    padding: 22px;
+    transform: rotate(-1.8deg);
+    transition: transform 0.25s ease;
+}
+
+.board-tag,
+.panel span,
+.postcard span {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    color: var(--sea);
+}
+
+#atlas-canvas {
+    width: 100%;
+    height: auto;
+    margin: 14px 0;
+    display: block;
+    border-radius: 24px;
+    background: linear-gradient(180deg, #dfeeed 0%, #c9dfdf 50%, #a9cfcb 100%);
+}
+
+.ink-switches { grid-template-columns: repeat(3, 1fr); }
+
+.ink {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--ink);
+    padding: 11px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.ink.active {
+    background: rgba(94, 143, 141, 0.16);
+    border-color: rgba(94, 143, 141, 0.3);
+}
+
+.section { padding: 78px 0; }
+.section-heading { display: grid; gap: 10px; margin-bottom: 24px; }
+.curator { grid-template-columns: 1.4fr 0.8fr 0.8fr; }
+.panel, .postcard, .museum-grid article, .biome-posters article { padding: 22px; }
+.story-ribbon, .museum-grid, .reason-columns, .footer-cta { grid-template-columns: repeat(3, 1fr); }
+.postcard-grid, .biome-posters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.postcard {
+    transform: rotate(calc(var(--accent-shift) * 0.001));
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.postcard.lift,
+.postcard:hover {
+    transform: translateY(-6px) rotate(-1deg);
+}
+
+.footer-cta {
+    padding: 32px 0 78px;
+    align-items: center;
+    border-top: 1px solid var(--line);
+}
+
+@media (max-width: 920px) {
+    .top-nav,
+    .hero-layout,
+    .hero-actions,
+    .ink-switches,
+    .curator,
+    .story-ribbon,
+    .postcard-grid,
+    .museum-grid,
+    .biome-posters,
+    .reason-columns,
+    .footer-cta {
+        grid-template-columns: 1fr;
+    }
+
+    .atlas-board { transform: none; }
+}

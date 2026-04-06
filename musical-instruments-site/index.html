@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Třináctý Takt</title>
+    <meta name="description" content="Třináctý Takt je 2D platformer roguelike, kde boj i pohyb sílí, když hráč hraje na beat.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="script2Dgame.js" defer></script>
+</head>
+<body>
+    <header class="hero" id="hero">
+        <div class="hud-strip">
+            <span>ARCADE // ROGUELIKE</span>
+            <span>BPM 130</span>
+            <span>CREDIT 01</span>
+        </div>
+
+        <div class="cabinet">
+            <div class="marquee">
+                <p class="eyebrow">Třináctý Takt</p>
+                <h1>Hraj přesně na beat, nebo tě podsvětí kabinetů vyplivne zpět do hlušiny.</h1>
+            </div>
+            <canvas id="arcade-canvas" width="760" height="360" aria-label="Animovaný arkádový displej"></canvas>
+            <div class="track-pills">
+                <button type="button" class="track active" data-copy="Bassline build zvýrazní slam útoky a odmění bezchybné řetězení nepřátel.">Bassline</button>
+                <button type="button" class="track" data-copy="Sync build drží delší kombo, posiluje dash a trestá chyby tvrdším rozpadem skóre.">Sync</button>
+                <button type="button" class="track" data-copy="Glitch build láme patterny bossů a vytváří nečekané rytmické mezery pro útok.">Glitch</button>
+            </div>
+            <p class="track-copy" id="track-copy">Bassline build zvýrazní slam útoky a odmění bezchybné řetězení nepřátel.</p>
+            <div class="score-row">
+                <article><span>SKÓRE</span><strong id="score">0013270</strong></article>
+                <article><span>COMBO</span><strong id="combo">x18</strong></article>
+                <article><span>STAGE</span><strong>LASER RAMPY</strong></article>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section world" id="svet">
+            <div class="section-heading">
+                <p class="eyebrow">O světě</p>
+                <h2>Pod každou starou hernou leží spodní obvod, kde se z hudby stává fyzická architektura.</h2>
+            </div>
+            <div class="grid-three">
+                <article><h3>Spodní obvod</h3><p>Tok kazet, tokenů a rozbitých beatů vytváří celé distrikty, které žijí z rytmického napětí.</p></article>
+                <article><h3>Skif</h3><p>Jednooký DJ-sprinter padá do podsvětí při pokusu opravit zakázaný track s třináctým taktem.</p></article>
+                <article><h3>Hub herna</h3><p>Mezi runy odemykáš kabinety, pásky a nové žánrové mutace, které mění start celé session.</p></article>
+            </div>
+        </section>
+
+        <section class="section systems" id="hook">
+            <div class="section-heading">
+                <p class="eyebrow">Rytmický gameplay</p>
+                <h2>Nejde o muzikál. Jde o brutální flow, kde přesnost násobí mobilitu i damage.</h2>
+            </div>
+            <div class="grid-three">
+                <article><h3>On-beat boj</h3><p>Zásahy na beat plní kombo, odemykají burst pohyby a tlačí skóre do další vrstvy.</p></article>
+                <article><h3>Kazetové buildy</h3><p>Každá páska mění rytmus runu: delay, bass slam, sync shield nebo glitch přeskok.</p></article>
+                <article><h3>Score ekonomika</h3><p>Skóre není dekorace. Otevírá volby, risk modifikátory i rychlejší cestu k boss aréně.</p></article>
+            </div>
+        </section>
+
+        <section class="section cast" id="postavy">
+            <div class="section-heading">
+                <p class="eyebrow">Postavy</p>
+                <h2>Podsvětí mluví jazykem moderátorů, obchodníků s tokeny a rozbitých VJ bohů.</h2>
+            </div>
+            <div class="grid-three">
+                <article><h3>Skif</h3><p>Rychlý DJ s mixpultem na zádech a deskou, která funguje jako dash i rytmická zbraň.</p></article>
+                <article><h3>Momo Token</h3><p>Obchodník s buildy, jenž prodává pásky, které by na povrchu nikdo nepřežil slyšet.</p></article>
+                <article><h3>VJ Nula</h3><p>Glitchem prasklá moderátorka, která z bossů dělá hlavní vysílací program večera.</p></article>
+            </div>
+        </section>
+
+        <section class="section biomes" id="biomy">
+            <div class="section-heading">
+                <p class="eyebrow">Biomy</p>
+                <h2>Každý district je jiný beat, jiná barva a jiná forma arkádové agrese.</h2>
+            </div>
+            <div class="grid-four">
+                <article><h3>Neonový Vestibul</h3><p>První hlučný prostor plný blikajících vodítek a tokenových pastí.</p></article>
+                <article><h3>Kazetové Kanály</h3><p>Úzké trubice s rytmickými skoky a proudy magnetických pásků.</p></article>
+                <article><h3>Laser Rampy</h3><p>Extrémní horizontální rychlost, launch pady a odměna za čisté combo.</p></article>
+                <article><h3>Arcade Katedrála Continue</h3><p>Monumentální finále, kde se rytmus stává téměř liturgií digitálního podsvětí.</p></article>
+            </div>
+        </section>
+
+        <section class="section enemies" id="nepratele">
+            <div class="section-heading">
+                <p class="eyebrow">Nepřátelé a bossové</p>
+                <h2>Každý protivník je navržený tak, aby narušil flow jiným druhem rytmického tlaku.</h2>
+            </div>
+            <div class="grid-three">
+                <article><h3>Beat-hlídači</h3><p>Utahují okno pro zásah a nutí hráče číst beat i animaci současně.</p></article>
+                <article><h3>Královna Continue</h3><p>Boss, který pálí patterny přesně mezi beaty a trestá slepé spoléhání na metronom.</p></article>
+                <article><h3>Kazetový Obraceč Času</h3><p>Finální protivník, jenž dokáže převrátit track a tím změnit logiku celého souboje.</p></article>
+            </div>
+        </section>
+
+        <section class="section reasons" id="proc">
+            <div class="section-heading">
+                <p class="eyebrow">Proč hrát</p>
+                <h2>Třináctý Takt dělá z rytmu skutečný roguelike systém, ne jen audiovizuální trik.</h2>
+            </div>
+            <div class="grid-three">
+                <article><p>Každý build mění tempo runu, skórování i boss windows.</p></article>
+                <article><p>Pseudo-arcade interface je diegetický a dává každému systému vizuální rytmus.</p></article>
+                <article><p>Acid neon styl je hlasitý, ale pořád čitelný a moderní.</p></article>
+            </div>
+        </section>
+
+        <section class="section roadmap" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">Roadmap</p>
+                <h2>Vývoj se posouvá jako odemykání nových kabinetů v zadní části herny.</h2>
+            </div>
+            <div class="grid-three">
+                <article><h3>Q2 2026</h3><p>Rytmický combat slice s Neonovým Vestibulem a první sadou pásek.</p></article>
+                <article><h3>Q4 2026</h3><p>Veřejné demo s boss arénou Královny Continue a score systémem.</p></article>
+                <article><h3>Q2 2027</h3><p>Plná verze s kompletními distrikty a vícevrstvým combo loopem.</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-cta" id="cta">
+        <div>
+            <p class="eyebrow">Finální CTA</p>
+            <h2>Hoď další token a sleduj, kdy se Třináctý Takt otevře veřejnosti.</h2>
+        </div>
+        <div class="hero-actions">
+            <a class="button primary" href="#hero">Přidat na wishlist</a>
+            <a class="button secondary" href="#hook">Zapnout attract mode</a>
+        </div>
+    </footer>
+</body>
+</html>

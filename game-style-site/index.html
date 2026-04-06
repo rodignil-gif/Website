@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karneval z Nití</title>
+    <meta name="description" content="Karneval z Nití je 2D platformer roguelike o akrobatce, která používá živou stuhu jako hák i zbraň.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="script2Dgame.js" defer></script>
+</head>
+<body>
+    <header class="hero" id="hero">
+        <div class="poster-grid">
+            <aside class="poster-strip">
+                <span>živé lano</span>
+                <span>temná manéž</span>
+                <span>festivalový roguelike</span>
+            </aside>
+
+            <div class="poster-main">
+                <p class="eyebrow">Karneval z Nití</p>
+                <h1>V každém večeru šiješ vlastní únik z festivalu, který živí strach publika.</h1>
+                <p>
+                    Mira kdysi patřila k hlavním hvězdám manéže. Dnes používá živou stuhu jako hák, zbraň
+                    i poslední spojení s místem, které se živí emocemi diváků a nikdy neskončí po závěrečné oponě.
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#cta">Chci vstoupit do neveřejného večera</a>
+                    <a class="button secondary" href="#akty">Prohlédnout akty</a>
+                </div>
+            </div>
+
+            <div class="poster-stage">
+                <canvas id="carnival-canvas" width="520" height="600" aria-label="Animovaná manéž Karnevalu z Nití"></canvas>
+                <div class="act-switches">
+                    <button type="button" class="act active" data-copy="První akt staví na rychlém swing traversal a útěku z rozpadlé manéže.">Akt I</button>
+                    <button type="button" class="act" data-copy="Druhý akt přidává šití objektů k sobě a vytváření vlastních vzdušných tras mezi stany.">Akt II</button>
+                    <button type="button" class="act" data-copy="Třetí akt lámě pravidla arény, protože samotný karneval začíná reagovat na publikum i hráče.">Akt III</button>
+                </div>
+                <p class="act-copy" id="act-copy">První akt staví na rychlém swing traversal a útěku z rozpadlé manéže.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section world" id="svet">
+            <div class="section-heading">
+                <p class="eyebrow">O světě</p>
+                <h2>Putovní festival není dekorace. Je to stroj na emoce, který se každý večer přeskupí.</h2>
+            </div>
+            <div class="poster-cards">
+                <article><h3>Roztržená manéž</h3><p>Aréna je plná reflektorů, provazišť a textilií, které se mění podle strachu publika.</p></article>
+                <article><h3>Karavana jako hub</h3><p>Mezi runy odemykáš kostymérnu, plakátovnu a vagóny dalších bývalých performerů.</p></article>
+                <article><h3>Sentientní festival</h3><p>Karneval sám pozoruje, jak hraješ, a začíná stavět nové akty proti tobě.</p></article>
+            </div>
+        </section>
+
+        <section class="section story" id="pribeh">
+            <div class="section-heading">
+                <p class="eyebrow">Příběh</p>
+                <h2>Mira neutíká z prokletého hradu. Utíká z místa, kde kdysi tleskala sama sobě.</h2>
+            </div>
+            <div class="story-row">
+                <article><h3>Hvězda manéže</h3><p>Mira byla hlavním číslem večera, dokud nepochopila, co se děje s diváky po závěrečném světle.</p></article>
+                <article><h3>Ředitel bez Tváře</h3><p>Hlavní antagonista nevypadá jako klaun. Působí jako producent cizích emocí.</p></article>
+                <article><h3>Nový program</h3><p>Každý run znamená přepsat program večera a rozhodnout, komu bude patřit poslední aplaus.</p></article>
+            </div>
+        </section>
+
+        <section class="section tether" id="akty">
+            <div class="section-heading">
+                <p class="eyebrow">Tether gameplay</p>
+                <h2>Živá stuha není grappling hook. Je to akrobatický partner s vlastní agresí.</h2>
+            </div>
+            <div class="poster-cards">
+                <article><h3>Swing</h3><p>Mira se houpe mezi světly, trámy a reflektory v rychlých diagonálních obloucích.</p></article>
+                <article><h3>Stitch</h3><p>Stuha umí sešít dva objekty k sobě a vyrobit dočasnou trasu nebo past v reálném čase.</p></article>
+                <article><h3>Yank</h3><p>Agresivní přitažení slouží jako finisher, reposition i způsob, jak měnit tempo boss arény.</p></article>
+            </div>
+        </section>
+
+        <section class="section cast" id="postavy">
+            <div class="section-heading">
+                <p class="eyebrow">Postavy</p>
+                <h2>Každá postava působí jako součást souboru, ne jako samostatná fantasy jednotka.</h2>
+            </div>
+            <div class="story-row">
+                <article><h3>Mira</h3><p>Provazochodkyně s tělem naučeným na rytmus publika a živou stuhou omotanou kolem paže.</p></article>
+                <article><h3>Pan Křídový</h3><p>Impresário, který vypadá mileji než většina bossů, a právě proto je nebezpečný.</p></article>
+                <article><h3>Sbor Maskovaných Diváků</h3><p>Dav bez konkrétní tváře, jehož nálada mění intenzitu večera i arénové modifikátory.</p></article>
+            </div>
+        </section>
+
+        <section class="section biomes" id="biomy">
+            <div class="section-heading">
+                <p class="eyebrow">Biomy</p>
+                <h2>Biomy jsou akty večera, ne klasické regiony mapy.</h2>
+            </div>
+            <div class="poster-cards four">
+                <article><h3>Předstání U Lampiónů</h3><p>Rychlý úvod plný zavěšených světel a falešného bezpečí.</p></article>
+                <article><h3>Zrcadlový Midway</h3><p>Bludiště optických klamů a střípků, kde tether mění geometrii tras.</p></article>
+                <article><h3>Klecová Promenáda</h3><p>Úzký, agresivní biom s vertikálními propady a lovci v klecích.</p></article>
+                <article><h3>Nebeská Lana</h3><p>Finální akt vysoko nad festivalem, kde je každý krok zároveň skokem do propasti.</p></article>
+            </div>
+        </section>
+
+        <section class="section enemies" id="nepratele">
+            <div class="section-heading">
+                <p class="eyebrow">Nepřátelé a bossové</p>
+                <h2>Bestiář karnevalu je divadelní, ostrý a stylizovaný jako součást představení.</h2>
+            </div>
+            <div class="story-row">
+                <article><h3>Švadleny stínů</h3><p>Sešívají arénu do nečekaných tvarů a ruší předvídatelné tether linky.</p></article>
+                <article><h3>Akrobat na Tisíci Kloubech</h3><p>Boss, který používá stejný vertikální jazyk pohybu jako hráč, jen mnohem zvráceněji.</p></article>
+                <article><h3>Ředitel bez Tváře</h3><p>Finální producent večera, který si z publika vytváří živou obrannou vrstvu.</p></article>
+            </div>
+        </section>
+
+        <section class="section reasons" id="proc">
+            <div class="section-heading">
+                <p class="eyebrow">Proč hrát</p>
+                <h2>Karneval z Nití spojuje expresivní traversal s identitou festivalového plakátu.</h2>
+            </div>
+            <div class="poster-cards">
+                <article><p>Tether traversal je postavený na šití prostoru, ne na prostém přitahování.</p></article>
+                <article><p>Vizualita je hlučná, typografická a extrovertní bez ztráty čitelnosti.</p></article>
+                <article><p>Struktura hry jako večerní program dává roguelike loopu jasnou značku a rytmus.</p></article>
+            </div>
+        </section>
+
+        <section class="section roadmap" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">Roadmap</p>
+                <h2>Vývoj se zapisuje jako další a další večery v programu.</h2>
+            </div>
+            <div class="story-row">
+                <article><h3>Q2 2026</h3><p>První hratelný akt s roztrženou manéží a základní stuhovou mechanikou.</p></article>
+                <article><h3>Q4 2026</h3><p>Demo s dvěma akty, publikem a první boss show.</p></article>
+                <article><h3>Q2 2027</h3><p>Plná premiéra se všemi vagóny souboru a kompletním programem večera.</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-cta" id="cta">
+        <div>
+            <p class="eyebrow">Finální CTA</p>
+            <h2>Přihlas se na neveřejné představení a sleduj, kdy se otevře další akt.</h2>
+        </div>
+        <div class="hero-actions">
+            <a class="button primary" href="#hero">Přidat na wishlist</a>
+            <a class="button secondary" href="#akty">Zobrazit akty</a>
+        </div>
+    </footer>
+</body>
+</html>

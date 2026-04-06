@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+    --bg: #141716;
+    --bone: #ebe1d4;
+    --ink: #efe8df;
+    --muted: #b7b1a7;
+    --acid: #b8d558;
+    --bruise: #6a4558;
+    --line: rgba(205, 240, 129, 0.18);
+    --panel: rgba(28, 32, 30, 0.82);
+    --bio-x: 0px;
+    --bio-y: 0px;
+    --mut-shift: 0px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 18% 15%, rgba(184, 213, 88, 0.12), transparent 26%),
+        radial-gradient(circle at 82% 12%, rgba(106, 69, 88, 0.18), transparent 30%),
+        linear-gradient(180deg, #131615 0%, #0f1211 100%);
+}
+
+.vein-fog {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 25% 40%, rgba(184, 213, 88, 0.08), transparent 20%),
+        radial-gradient(circle at 65% 62%, rgba(106, 69, 88, 0.12), transparent 24%);
+    transform: translate(var(--bio-x), var(--bio-y));
+}
+
+.hero,
+.section,
+.footer-cta {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.status-rail,
+.hero-grid,
+.hero-actions,
+.mutation-switches,
+.lab-column,
+.mutation-grid,
+.world-layout,
+.story-cards,
+.biome-grid,
+.reason-strip,
+.footer-cta {
+    display: grid;
+    gap: 16px;
+}
+
+.hero {
+    padding: 28px 0 74px;
+    min-height: 100vh;
+}
+
+.status-rail {
+    grid-template-columns: repeat(3, max-content);
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    color: var(--muted);
+}
+
+.hero-grid {
+    grid-template-columns: 1.05fr 1fr 0.72fr;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--acid);
+    font-size: 0.72rem;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-family: "Syne", sans-serif;
+    line-height: 0.94;
+}
+
+h1 { font-size: clamp(3rem, 7vw, 6rem); max-width: 10ch; margin: 10px 0 18px; }
+h2 { font-size: clamp(2rem, 4.5vw, 3.6rem); max-width: 14ch; }
+
+p { color: var(--muted); line-height: 1.72; }
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    border-radius: 999px;
+}
+
+.hero-actions {
+    grid-template-columns: repeat(2, max-content);
+    margin-top: 24px;
+}
+
+.primary { background: linear-gradient(135deg, rgba(184, 213, 88, 0.92), rgba(136, 181, 68, 0.88)); color: #111511; }
+.secondary { border: 1px solid var(--line); color: var(--ink); background: rgba(255, 255, 255, 0.03); }
+
+.specimen-stage,
+.lab-column article,
+.mutation-grid article,
+.large-panel,
+.world-layout article,
+.story-cards article,
+.biome-grid article,
+.reason-strip p {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 34px 18px 30px 22px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+}
+
+.specimen-stage {
+    padding: 18px;
+    transform: translate(calc(var(--mut-shift) * 0.06), 0);
+}
+
+#pollen-canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 28px;
+    background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0));
+}
+
+.mutation-switches { grid-template-columns: repeat(3, 1fr); margin-top: 16px; }
+
+.morph {
+    padding: 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.morph.active { background: rgba(184, 213, 88, 0.14); }
+.specimen-note { margin-top: 14px; }
+
+.lab-column article,
+.mutation-grid article,
+.large-panel,
+.world-layout article,
+.story-cards article,
+.biome-grid article {
+    padding: 22px;
+}
+
+.lab-column span {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--acid);
+    font-size: 0.72rem;
+    margin-bottom: 8px;
+}
+
+.section { padding: 80px 0; }
+.section-heading { display: grid; gap: 10px; margin-bottom: 26px; }
+.mutation-grid,
+.story-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.world-layout { grid-template-columns: 1.2fr 0.8fr 0.8fr; }
+.biome-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.reason-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.reason-strip p { padding: 22px; }
+
+.footer-cta {
+    padding: 30px 0 78px;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    border-top: 1px solid var(--line);
+}
+
+@media (max-width: 960px) {
+    .status-rail,
+    .hero-grid,
+    .hero-actions,
+    .mutation-switches,
+    .lab-column,
+    .mutation-grid,
+    .world-layout,
+    .story-cards,
+    .biome-grid,
+    .reason-strip,
+    .footer-cta {
+        grid-template-columns: 1fr;
+    }
+
+    h1 { max-width: none; }
+}

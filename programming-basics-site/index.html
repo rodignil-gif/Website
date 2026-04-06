@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrám Sedmi Tváří</title>
+    <meta name="description" content="Chrám Sedmi Tváří je 2D platformer roguelike o učednici, která přepíná živé masky a mění styl boje i pohybu.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="script2Dgame.js" defer></script>
+</head>
+<body>
+    <header class="hero" id="hero">
+        <div class="sunline">
+            <span>Rituální fantasy roguelike</span>
+            <span>Masky jako stance systém</span>
+            <span>Pergamenový codex</span>
+        </div>
+
+        <div class="hero-layout">
+            <div class="hero-copy">
+                <p class="eyebrow">Chrám Sedmi Tváří</p>
+                <h1>Každá maska ti dá jiný hlas, jiný krok a jiný způsob, jak projít světem.</h1>
+                <p>
+                    Tamar je poslední mladá řezačka masek. Každý run vybírá dvojici živých tváří, které
+                    přepisují její pohyb, obranu i vztah k samotnému chrámu. Tohle není jen loadout. Je to identita.
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#cta">Vstoupit do pouti</a>
+                    <a class="button secondary" href="#masky">Prohlédnout masky</a>
+                </div>
+            </div>
+
+            <div class="mask-wheel">
+                <canvas id="mask-canvas" width="560" height="560" aria-label="Animované rituální kolo masek"></canvas>
+                <div class="mask-tabs">
+                    <button type="button" class="mask active" data-copy="Maska Lovce přidává dlouhý skok, rychlý průnik a agresivní načasování útoku.">Lovec</button>
+                    <button type="button" class="mask" data-copy="Maska Studny převádí zásahy na obranu a otevírá klouzavý pád do vertikálních šachet.">Studna</button>
+                    <button type="button" class="mask" data-copy="Maska Písku posouvá tempo k rychlým dashi a přesnému průchodu mezi projektily.">Písek</button>
+                </div>
+                <p class="mask-copy" id="mask-copy">Maska Lovce přidává dlouhý skok, rychlý průnik a agresivní načasování útoku.</p>
+                <nav class="wheel-nav">
+                    <a href="#svet">Svět</a>
+                    <a href="#masky">Masky</a>
+                    <a href="#postavy">Postavy</a>
+                    <a href="#biomy">Biomy</a>
+                    <a href="#roadmap">Roadmap</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section world" id="svet">
+            <div class="section-heading">
+                <p class="eyebrow">O světě</p>
+                <h2>Chrám je uzavřený, světlý a plný stop bohů, kteří se dávno rozdrobili na tváře.</h2>
+            </div>
+            <div class="scroll-grid">
+                <article>
+                    <h3>Solné svatyně</h3>
+                    <p>Každý biom má vlastní materiál, rytmus větru a odlišný typ průchodu skrze prostor i protivníky.</p>
+                </article>
+                <article>
+                    <h3>Dílna masek</h3>
+                    <p>Hub nefunguje jako dílna zbraní. Je to řezbářská svatyně, kde se tváře opravují a kombinují.</p>
+                </article>
+                <article>
+                    <h3>Sedmá tvář</h3>
+                    <p>Zakázaná maska bez jména čeká na hráče, který dokáže spojit protiklady ostatních forem.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section masks" id="masky">
+            <div class="section-heading">
+                <p class="eyebrow">Masky a gameplay</p>
+                <h2>Forma není kosmetika. Mění hitbox, verb i psychologii runu.</h2>
+            </div>
+            <div class="scroll-grid">
+                <article><h3>Dvojice masek</h3><p>Do runu vstupuješ se dvěma tvářemi a mezi nimi rytmicky přepínáš podle situace.</p></article>
+                <article><h3>Synkretické buildy</h3><p>Meta-progrese dovolí vyrábět nové kombinace, které propojí rysy více bohů do jedné cesty.</p></article>
+                <article><h3>Ruční identita</h3><p>Každá maska mění siluetu Tamar i způsob, jak animace čtou rychlost a váhu pohybu.</p></article>
+            </div>
+        </section>
+
+        <section class="section story" id="pribeh">
+            <div class="section-heading">
+                <p class="eyebrow">Příběh</p>
+                <h2>Tamar není vyvolená princezna, ale učednice řemesla, které přežilo pád bohů.</h2>
+            </div>
+            <div class="story-band">
+                <article><h3>Poslední řezačka</h3><p>Chrám ztratil mistry a zůstaly po nich jen polámané nástroje a rozptýlené tváře.</p></article>
+                <article><h3>Stařena Nisa</h3><p>Slepá mistryně vede Tamar skrze obřad, ale odmítá říct, co se stane po probuzení sedmé masky.</p></article>
+                <article><h3>Nový panteon</h3><p>Cílem není jen posbírat masky. Hráč rozhodne, jaké nové božství z nich nakonec vznikne.</p></article>
+            </div>
+        </section>
+
+        <section class="section cast" id="postavy">
+            <div class="section-heading">
+                <p class="eyebrow">Postavy</p>
+                <h2>Celý svět se točí kolem nositelů, řezbářů a tichých poslů chrámu.</h2>
+            </div>
+            <div class="story-band">
+                <article><h3>Tamar</h3><p>Drobná učednice s dláty, závěsy masek a pohybem, který se mění s každou tváří.</p></article>
+                <article><h3>Stařena Nisa</h3><p>Slepá mistryně, která vede obřad a zkouší, zda Tamar chápe cenu každé formy.</p></article>
+                <article><h3>Sůlný Posel</h3><p>Bytost, která zná mezi biomami tajné trasy a objevuje se vždy těsně před novým zlomem pouti.</p></article>
+            </div>
+        </section>
+
+        <section class="section biomes" id="biomy">
+            <div class="section-heading">
+                <p class="eyebrow">Biomy</p>
+                <h2>Každý biom je navržený jako jiná forma rituálu, ne jako náhodně poskládaná aréna.</h2>
+            </div>
+            <div class="biome-grid">
+                <article><h3>Bílý Dvůr Soli</h3><p>Otevřený světlem zalitý úvod, kde se učíš číst váhu masek.</p></article>
+                <article><h3>Zrcadlové Studny</h3><p>Vertikální biom s odrazy a falešnými průchody skrytými za leskem vody.</p></article>
+                <article><h3>Sál Větrných Závojů</h3><p>Lehké hedvábné bariéry odměňují rychlé přepínání mezi dashi a kontrolou pádu.</p></article>
+                <article><h3>Maskovna Bez Stínu</h3><p>Nejhlubší část chrámu, kde žádná tvář nelže a každá chyba působí definitivně.</p></article>
+            </div>
+        </section>
+
+        <section class="section enemies" id="nepratele">
+            <div class="section-heading">
+                <p class="eyebrow">Nepřátelé a bossové</p>
+                <h2>Bestiář působí posvátně, ale každý protivník je čitelný přes pohyb a rytmus.</h2>
+            </div>
+            <div class="story-band">
+                <article><h3>Poutníci bez obličeje</h3><p>Rychle trestají špatně zvolenou formu a nutí hráče číst siluetu dřív než animaci.</p></article>
+                <article><h3>Nevěsta Soli</h3><p>Boss, který mění arénu na křehkou kůru a nutí střídat těžké i lehké masky.</p></article>
+                <article><h3>Prázdný Patron Maskovny</h3><p>Finální střet s bytostí, jež nosí prázdnotu jako poslední, nejnásilnější tvář.</p></article>
+            </div>
+        </section>
+
+        <section class="section reasons" id="proc">
+            <div class="section-heading">
+                <p class="eyebrow">Proč hrát</p>
+                <h2>Chrám Sedmi Tváří nabízí systém forem, který je vizuálně i mechanicky vzácně soudržný.</h2>
+            </div>
+            <div class="scroll-grid">
+                <article><p>Masky mění build, ale zároveň mění animaci, rytmus a emoci celého runu.</p></article>
+                <article><p>Světlá sakrální estetika se záměrně vyhýbá běžnému dark fantasy stereotypu.</p></article>
+                <article><p>Roguelike meta-progrese se odemyká jako obřad a řemeslo, ne jako suchý strom perků.</p></article>
+            </div>
+        </section>
+
+        <section class="section roadmap" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">Roadmap</p>
+                <h2>Vývoj postupuje jako obnova celé maskovny.</h2>
+            </div>
+            <div class="story-band">
+                <article><h3>Q2 2026</h3><p>První poutní slice se třemi maskami, jedním bossem a bílým dvorem.</p></article>
+                <article><h3>Q4 2026</h3><p>Veřejné demo se zrcadlovými studnami a rozšířenou řezbářskou dílnou.</p></article>
+                <article><h3>Q2 2027</h3><p>Plná verze s probuzením sedmé tváře a více synkretickými buildy.</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-cta" id="cta">
+        <div>
+            <p class="eyebrow">Finální CTA</p>
+            <h2>Vyber svou první tvář a sleduj, kdy se chrám otevře pro veřejnou pouť.</h2>
+        </div>
+        <div class="hero-actions">
+            <a class="button primary" href="#hero">Přidat na wishlist</a>
+            <a class="button secondary" href="#masky">Otevřít masky</a>
+        </div>
+    </footer>
+</body>
+</html>

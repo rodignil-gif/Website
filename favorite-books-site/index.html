@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Utopených Břehů</title>
+    <meta name="description" content="Atlas Utopených Břehů je 2D platformer roguelike o kartografce, která maluje ztracené ostrovy zpět do reality.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="script2Dgame.js" defer></script>
+</head>
+<body>
+    <header class="hero" id="hero">
+        <nav class="top-nav">
+            <a href="#svet">Svět</a>
+            <a href="#pribeh">Příběh</a>
+            <a href="#hook">Gameplay</a>
+            <a href="#biomy">Biomy</a>
+            <a href="#roadmap">Roadmap</a>
+        </nav>
+
+        <div class="hero-layout">
+            <div class="hero-copy">
+                <p class="eyebrow">Melancholický painterly roguelike</p>
+                <h1>Namaluj ostrovy zpět do světa dřív, než je vezme další příliv.</h1>
+                <p>
+                    Jara běhá po rozpadajících se molech, maluje mosty z inkoustu a otevírá nové cesty mezi
+                    zatopenými městy. Každý run je nový list atlasu a nové rozhodnutí, které břehy si svět zaslouží.
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#cta">Chci pozvánku do dema</a>
+                    <a class="button secondary" href="#hook">Jak funguje malování</a>
+                </div>
+            </div>
+
+            <aside class="atlas-board" data-board>
+                <div class="board-tag">Výstavní list č. 04</div>
+                <canvas id="atlas-canvas" width="560" height="420" aria-label="Animovaný atlas světa"></canvas>
+                <div class="ink-switches">
+                    <button type="button" class="ink active" data-note="Modrý inkoust otevírá proudy a dělá z hladiny dočasnou cestu.">Proud</button>
+                    <button type="button" class="ink" data-note="Rezavý inkoust drží tvar déle a vytváří robustní mosty přes vlnolam.">Most</button>
+                    <button type="button" class="ink" data-note="Zlatý inkoust značí tajné adresy a odemyká skryté poštovní průchody.">Pečeť</button>
+                </div>
+                <p class="board-note" id="ink-note">Modrý inkoust otevírá proudy a dělá z hladiny dočasnou cestu.</p>
+            </aside>
+        </div>
+    </header>
+
+    <main>
+        <section class="section curator" id="svet">
+            <div class="panel intro-card">
+                <p class="eyebrow">O světě</p>
+                <h2>Pobřeží se tu nevrací z ruin, ale z paměti.</h2>
+                <p>
+                    Tichý příliv nesmetl civilizaci v jediném okamžiku. Pomalu vymazal cesty, adresy a jména měst.
+                    Atlas Utopených Břehů staví roguelike loop na tom, že hráč znovu kreslí logistiku světa.
+                </p>
+            </div>
+            <div class="panel small-card">
+                <span>Hub</span>
+                <p>Přístavní ateliér roste s každým novým listem atlasu.</p>
+            </div>
+            <div class="panel small-card">
+                <span>Emoce</span>
+                <p>Hra působí klidně, ale každé rozhodnutí mění obrysy celého souostroví.</p>
+            </div>
+        </section>
+
+        <section class="section story" id="pribeh">
+            <div class="section-heading">
+                <p class="eyebrow">Příběh</p>
+                <h2>Poštovní kartografka Jara hledá trasy, které zmizely dřív, než stačily být doručeny.</h2>
+            </div>
+            <div class="story-ribbon">
+                <article>
+                    <h3>Ztracené adresy</h3>
+                    <p>Každé utopené město má své poslední dopisy. Jara je sbírá a vrací místům jejich skutečná jména.</p>
+                </article>
+                <article>
+                    <h3>Plovoucí archiv</h3>
+                    <p>Obrovská loď-knihovna uchovává fragmenty map a dovolí odemykat nové malířské techniky.</p>
+                </article>
+                <article>
+                    <h3>Volba pobřeží</h3>
+                    <p>Nepůjde zachránit všechny břehy. Každý run znamená, že jiná část světa zůstane ještě chvíli pod vodou.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section hook" id="hook">
+            <div class="section-heading">
+                <p class="eyebrow">Gameplay hook</p>
+                <h2>Malování je traversal, obrana i ekonomika runu v jednom systému.</h2>
+            </div>
+            <div class="postcard-grid">
+                <article class="postcard">
+                    <span>Mosty z inkoustu</span>
+                    <p>Táhneš štětcem přes volnou vodu a vytváříš mosty s omezenou životností.</p>
+                </article>
+                <article class="postcard">
+                    <span>Proudové šipky</span>
+                    <p>Štětcová gesta umí rozjet Jaru po vlně a přeměnit horizontální běh v elegantní skluz.</p>
+                </article>
+                <article class="postcard">
+                    <span>Atlas buildů</span>
+                    <p>Různé inkousty mění délku tahu, sílu útoku i hodnotu nalezených mapových fragmentů.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section cast" id="postavy">
+            <div class="section-heading">
+                <p class="eyebrow">Postavy</p>
+                <h2>Lidé, kteří drží spojení mezi utopenými body na mapě.</h2>
+            </div>
+            <div class="museum-grid">
+                <article>
+                    <h3>Jara</h3>
+                    <p>Poštovní kartografka na chůdách se štětcovou tyčí a brašnou plnou mokrých map.</p>
+                </article>
+                <article>
+                    <h3>Teta Vela</h3>
+                    <p>Správkyně přístavu a hlas komunity, která čeká na návrat cest.</p>
+                </article>
+                <article>
+                    <h3>Chlapec Mlhovec</h3>
+                    <p>Poslíček, který se objevuje v nepravděpodobných zkratkách a pomáhá objevit skryté přístavy.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section biomes" id="biomy">
+            <div class="section-heading">
+                <p class="eyebrow">Biomy</p>
+                <h2>Souostroví se nečte jako série arén, ale jako rozmočená kniha světa.</h2>
+            </div>
+            <div class="biome-posters">
+                <article><h3>Mléčný Přístav</h3><p>Polozapuštěná mola, bílé bóje a první bezpečné dílny inkoustu.</p></article>
+                <article><h3>Mlžné Souostroví Lamp</h3><p>Ostrovy mizící v mlze, kde se orientuješ podle plovoucích luceren.</p></article>
+                <article><h3>Pěnové Schody Útesů</h3><p>Vertikální stoupání nad přílivem, kde každá chyba znamená nový tah štětcem.</p></article>
+                <article><h3>Papírový Útes Ztracených Adres</h3><p>Biom, který vypadá jako roztrhané dopisy přetavené do geografie.</p></article>
+            </div>
+        </section>
+
+        <section class="section enemies" id="nepratele">
+            <div class="section-heading">
+                <p class="eyebrow">Nepřátelé a bossové</p>
+                <h2>Bestiář vzniká z moře, pošty a věcí, které měly být kdysi doručeny.</h2>
+            </div>
+            <div class="museum-grid">
+                <article>
+                    <h3>Inkoustové murény</h3>
+                    <p>Napadají čerstvě namalované cesty a snaží se z nich vysát barvu dřív, než po nich stihneš projít.</p>
+                </article>
+                <article>
+                    <h3>Maják bez Oken</h3>
+                    <p>Boss, který mění viditelnost mapy a nutí hráče improvizovat v prázdném mléčném prostoru.</p>
+                </article>
+                <article>
+                    <h3>Atlasová Velryba</h3>
+                    <p>Obří plovoucí tvor s kůží posetou starými trasami, které musíš přepsat v pohybu.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section reasons" id="proc">
+            <div class="section-heading">
+                <p class="eyebrow">Proč hrát</p>
+                <h2>Protože traversal je tady doslova kreslení nového světa.</h2>
+            </div>
+            <div class="reason-columns">
+                <p>Každý biom je navržený kolem jiné práce s inkoustem, proudem a dočasnou geometrií.</p>
+                <p>Painterly prezentace neslouží jen kráse. Podporuje čitelný pocit, že jsi uvnitř živého atlasu.</p>
+                <p>Meta-progrese buduje přístav, mapovnu i síť lidí, kteří na návrat cest čekají.</p>
+            </div>
+        </section>
+
+        <section class="section gallery" id="galerie">
+            <div class="section-heading">
+                <p class="eyebrow">Galerie</p>
+                <h2>Pohlednice, kurátorské štítky a pobřežní artefakty.</h2>
+            </div>
+            <div class="postcard-grid large">
+                <article class="postcard"><span>Akvarelové pobřeží</span><p>Svět se skládá z vrstev papíru, inkoustu a mořské mlhy.</p></article>
+                <article class="postcard"><span>Poštovní pečeti</span><p>Roguelike odměny vypadají jako doručené známky z míst, která už neexistují.</p></article>
+                <article class="postcard"><span>Tiché molo</span><p>Hub není menu. Je to komunita, která roste s každým novým listem atlasu.</p></article>
+            </div>
+        </section>
+
+        <section class="section roadmap" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">Roadmap</p>
+                <h2>Vývoj postupuje jako rozšiřování atlasu po jednotlivých pobřežích.</h2>
+            </div>
+            <div class="story-ribbon">
+                <article><h3>Léto 2026</h3><p>První veřejný slice s Mléčným Přístavem a dvěma inkoustovými školami.</p></article>
+                <article><h3>Podzim 2026</h3><p>Rozšířené demo se dvěma bossy a růstem přístavního hubu.</p></article>
+                <article><h3>Jaro 2027</h3><p>Plný atlas s více větvemi tras a definitivní volbou pobřeží.</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-cta" id="cta">
+        <div>
+            <p class="eyebrow">Finální CTA</p>
+            <h2>Připiš své jméno na seznam těch, kdo uvidí další ostrov jako první.</h2>
+        </div>
+        <div class="hero-actions">
+            <a class="button primary" href="#hero">Přidat na wishlist</a>
+            <a class="button secondary" href="#roadmap">Číst deník vývoje</a>
+        </div>
+    </footer>
+</body>
+</html>

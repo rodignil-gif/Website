@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
+:root {
+    --bg: #0f0c0b;
+    --panel: rgba(33, 22, 18, 0.78);
+    --line: rgba(219, 175, 111, 0.22);
+    --text: #f4e8d5;
+    --muted: #cbb89a;
+    --accent: #d89d52;
+    --accent-2: #ffcf7a;
+    --tone-shift: 0deg;
+    --pointer-x: 0;
+    --pointer-y: 0;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 132, 61, 0.18), transparent 32%),
+        radial-gradient(circle at 80% 10%, rgba(216, 157, 82, 0.14), transparent 28%),
+        linear-gradient(180deg, #120d0c 0%, #0c0909 100%);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+.ember-field {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle at 15% 30%, rgba(255, 145, 71, 0.14) 0 2px, transparent 3px),
+        radial-gradient(circle at 72% 18%, rgba(255, 206, 129, 0.16) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 62% 68%, rgba(255, 120, 60, 0.12) 0 2px, transparent 3px);
+    animation: drift 16s linear infinite;
+}
+
+.hero,
+.section,
+.cta-footer {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.hero {
+    padding: 30px 0 80px;
+    min-height: 100vh;
+    display: grid;
+    gap: 32px;
+}
+
+.hero-topline,
+.hero-stats,
+.ring-nav,
+.tone-switches,
+.resonance-grid,
+.world-layout,
+.timeline,
+.cast-grid,
+.biome-columns,
+.bestiary-grid,
+.gallery-grid,
+.roadmap-steps,
+.cta-footer,
+.hero-actions,
+.cta-actions,
+.reasons-list {
+    display: grid;
+    gap: 16px;
+}
+
+.hero-topline {
+    grid-template-columns: repeat(3, max-content);
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    color: var(--muted);
+}
+
+.hero-copy {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--accent-2);
+    font-size: 0.76rem;
+}
+
+h1,
+h2,
+h3,
+.core-value {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: clamp(3.4rem, 8vw, 6.8rem);
+    line-height: 0.92;
+    max-width: 10ch;
+    margin: 12px auto 18px;
+}
+
+h2 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 0.98;
+    max-width: 15ch;
+}
+
+.hero-text,
+.world-panel p,
+.timeline p,
+.cast-grid p,
+.biome-columns p,
+.bestiary-grid p,
+.gallery-grid p,
+.roadmap-steps p,
+.reasons-list p,
+.core-copy,
+.cta-footer p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.hero-actions,
+.cta-actions {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.button:hover { transform: translateY(-2px); }
+
+.primary {
+    background: linear-gradient(135deg, rgba(216, 157, 82, 0.95), rgba(255, 207, 122, 0.88));
+    color: #1a110d;
+}
+
+.secondary {
+    border: 1px solid var(--line);
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.sanctum {
+    display: grid;
+    justify-items: center;
+    gap: 18px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 40px;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 186, 105, 0.08), rgba(0, 0, 0, 0) 45%), var(--panel);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+    transform: translate3d(calc(var(--pointer-x) * 10px), calc(var(--pointer-y) * 10px), 0);
+}
+
+#bell-canvas {
+    width: min(100%, 520px);
+    height: auto;
+}
+
+.sanctum-core { text-align: center; max-width: 420px; }
+.core-label { text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--muted); }
+.core-value { font-size: clamp(2rem, 3vw, 3rem); }
+
+.tone-switches {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100%, 560px);
+}
+
+.tone {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+    padding: 12px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.tone.active {
+    border-color: rgba(255, 210, 132, 0.7);
+    background: rgba(216, 157, 82, 0.18);
+}
+
+.ring-nav {
+    grid-template-columns: repeat(6, max-content);
+    justify-content: center;
+}
+
+.ring-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+}
+
+.ring-nav a.active,
+.ring-nav a:hover {
+    border-color: var(--line);
+    color: var(--accent-2);
+}
+
+.hero-stats { grid-template-columns: repeat(3, 1fr); }
+
+.hero-stats article,
+.resonance-card,
+.world-panel,
+.timeline article,
+.cast-grid article,
+.biome-columns article,
+.bestiary-grid article,
+.gallery-grid article,
+.roadmap-steps article {
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 22px;
+    background: rgba(22, 15, 14, 0.78);
+}
+
+.hero-stats span,
+.resonance-card span {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.section { padding: 82px 0; }
+.section-heading { display: grid; gap: 10px; margin-bottom: 28px; }
+.resonance-grid,
+.cast-grid,
+.bestiary-grid,
+.gallery-grid,
+.roadmap-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.world-layout { grid-template-columns: 1.25fr 0.75fr 0.75fr; }
+.timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.biome-columns { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.reasons-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.cta-footer {
+    padding: 40px 0 80px;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    border-top: 1px solid var(--line);
+}
+
+@keyframes drift {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+    100% { transform: translateY(0); }
+}
+
+@media (max-width: 920px) {
+    .hero-topline,
+    .hero-actions,
+    .cta-actions,
+    .hero-stats,
+    .resonance-grid,
+    .world-layout,
+    .timeline,
+    .cast-grid,
+    .biome-columns,
+    .bestiary-grid,
+    .reasons-list,
+    .gallery-grid,
+    .roadmap-steps,
+    .cta-footer,
+    .ring-nav,
+    .tone-switches {
+        grid-template-columns: 1fr;
+    }
+
+    h1 { max-width: none; }
+}

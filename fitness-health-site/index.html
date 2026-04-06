@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pylokrev</title>
+    <meta name="description" content="Pylokrev je 2D platformer roguelike o parfumérce, která roubuje symbiotické orgány a uniká z maso-skleníku.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="script2Dgame.js" defer></script>
+</head>
+<body>
+    <div class="vein-fog" aria-hidden="true"></div>
+
+    <header class="hero" id="hero">
+        <div class="status-rail">
+            <span>Bio-organic roguelike</span>
+            <span>Skleníkový protokol 07</span>
+            <span>Mutace jako build systém</span>
+        </div>
+
+        <div class="hero-grid">
+            <div class="hero-copy">
+                <p class="eyebrow">Pylokrev</p>
+                <h1>Vypěstuj si vlastní tělo dřív, než si tě skleník přepíše po svém.</h1>
+                <p>
+                    Irena Salva utíká z živého skleníku, kde se léčivé kultury změnily ve vědomou biomasu.
+                    Každý nový orgán mění pohyb, útoky i siluetu hrdinky. Každé rozhodnutí je zároveň upgrade i ztráta.
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#cta">Vstoupit do testu vivária</a>
+                    <a class="button secondary" href="#mutace">Prohlédnout mutace</a>
+                </div>
+            </div>
+
+            <div class="specimen-stage">
+                <canvas id="pollen-canvas" width="520" height="460" aria-label="Animovaná bio-organická komora"></canvas>
+                <div class="mutation-switches">
+                    <button type="button" class="morph active" data-note="Pylové plíce prodlužují vzdušný drift a převádí zásahy na oblak spor.">Pylové plíce</button>
+                    <button type="button" class="morph" data-note="Háčkovité šlachy dovolí prudké přitažení ke stropu a bodavé finishery z výskoku.">Šlachy</button>
+                    <button type="button" class="morph" data-note="Kyselá míza otevírá alternativní cesty skrze měkké bariéry a pomalu rozpouští štíty bossů.">Míza</button>
+                </div>
+                <p class="specimen-note" id="morph-note">Pylové plíce prodlužují vzdušný drift a převádí zásahy na oblak spor.</p>
+            </div>
+
+            <aside class="lab-column">
+                <article>
+                    <span>Hrdinka</span>
+                    <strong>Irena Salva</strong>
+                </article>
+                <article>
+                    <span>Hook</span>
+                    <strong>Parazitické mutace</strong>
+                </article>
+                <article>
+                    <span>Meta</span>
+                    <strong>Archiv orgánů a živých esencí</strong>
+                </article>
+            </aside>
+        </div>
+    </header>
+
+    <main>
+        <section class="section mutation" id="mutace">
+            <div class="section-heading">
+                <p class="eyebrow">Gameplay hook</p>
+                <h2>Každý roub je mechanika, estetika i morální cena v jednom pohybu.</h2>
+            </div>
+            <div class="mutation-grid">
+                <article>
+                    <h3>Tělo jako build</h3>
+                    <p>Nevolíš meč nebo kouzlo. Volíš si orgán, který přepíše celý loop pohybu a agrese.</p>
+                </article>
+                <article>
+                    <h3>Reakce prostředí</h3>
+                    <p>Skleník tě skenuje podle toho, co sis narouboval. Nepřátelé i biom reagují na aktuální tělesný profil.</p>
+                </article>
+                <article>
+                    <h3>Meta-vivárium</h3>
+                    <p>Uložené mutace odemykají nové kombinace, laboratorní uzly i riskantní experimenty pro další run.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section world" id="svet">
+            <div class="section-heading">
+                <p class="eyebrow">O světě</p>
+                <h2>Skleník kdysi pěstoval léky. Teď pěstuje vlastní nástupce lidstva.</h2>
+            </div>
+            <div class="world-layout">
+                <article class="large-panel">
+                    <p>
+                        Pylokrev kombinuje dvorskou parfumérii, vlhkou laboratoř a tělesný horror bez laciného gore.
+                        Irena utíká prostorem, který stále roste, učí se a chce ji začlenit do vlastního ekosystému.
+                    </p>
+                </article>
+                <article>
+                    <h3>Hub laboratoř</h3>
+                    <p>Vivárium, vitríny a mluvící herbář fungují jako meta-progrese i archiv příběhu.</p>
+                </article>
+                <article>
+                    <h3>Otázka hry</h3>
+                    <p>Jak daleko můžeš zajít v přepisování těla, aniž by ses stal nejlepším produktem skleníku?</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section story" id="pribeh">
+            <div class="section-heading">
+                <p class="eyebrow">Příběh</p>
+                <h2>Irena nebyla voják. Byla dvorní parfumérka, která přesně věděla, jak reaguje vůně s tělem.</h2>
+            </div>
+            <div class="story-cards">
+                <article><h3>První únik</h3><p>Útěk začíná v inokulační komoře, kde se Irena poprvé rozhodne přijmout cizí orgán.</p></article>
+                <article><h3>Mluvící herbář</h3><p>Živá kniha zaznamenává každou mutaci a pomalu odkrývá, kdo skleník kdysi probudil.</p></article>
+                <article><h3>Královna pylu</h3><p>V nejhlubším patře čeká mysl, která věří, že lidské tělo bylo jen první prototyp.</p></article>
+            </div>
+        </section>
+
+        <section class="section cast" id="postavy">
+            <div class="section-heading">
+                <p class="eyebrow">Postavy</p>
+                <h2>Spojenecké hlasy přicházejí z laboratoře, ne z armády nebo trůnu.</h2>
+            </div>
+            <div class="story-cards">
+                <article><h3>Irena Salva</h3><p>Parfumérka s respirátorem, baňkami a tělem, které se v každém runu mění v něco nového.</p></article>
+                <article><h3>Správce Štěpu</h3><p>Napůl zahradník, napůl rostlina. Ví, jak skleník myslí, ale už z něj neumí odejít.</p></article>
+                <article><h3>Mluvící Herbář</h3><p>Suchý, strohý a téměř vědecký hlas uprostřed něčeho, co je čím dál méně lidské.</p></article>
+            </div>
+        </section>
+
+        <section class="section biomes" id="biomy">
+            <div class="section-heading">
+                <p class="eyebrow">Biomy</p>
+                <h2>Každý biom představuje jinou fázi růstu, vlhkosti a tělesné adaptace.</h2>
+            </div>
+            <div class="biome-grid">
+                <article><h3>Nefritová Potnice</h3><p>První dusné chodby, kde stěny kondenzují a reagují na každý dotek.</p></article>
+                <article><h3>Sál Živých Herbářů</h3><p>Listy, které se rozevírají jako složky, a kořeny nesoucí cizí poznámky o lidech.</p></article>
+                <article><h3>Kořenové Katedry</h3><p>Vertikální biom s vláknitými mosty a obřími pylovými komorami.</p></article>
+                <article><h3>Jazyková Nádrž Nektaru</h3><p>Finální vlhký prostor, kde se biom doslova snaží hrdinku oslovit a pohltit.</p></article>
+            </div>
+        </section>
+
+        <section class="section bestiary" id="nepratele">
+            <div class="section-heading">
+                <p class="eyebrow">Nepřátelé a bossové</p>
+                <h2>Bestiář je zneklidňující, ale stále krásný a funkčně čitelný.</h2>
+            </div>
+            <div class="story-cards">
+                <article><h3>Pyloví jeptiši</h3><p>Pomalu kráčejí, ale vyvolají oblaka spor, která mění vlastnosti arény.</p></article>
+                <article><h3>Abatyše Trnu</h3><p>Boss, který kombinuje zástěny z okvětních listů s prudkým průrazem stonkovým kopím.</p></article>
+                <article><h3>Nevěsta Šťávy</h3><p>Vrcholný boss skleníku, jehož útoky mění tvar celé komory v reálném čase.</p></article>
+            </div>
+        </section>
+
+        <section class="section reasons" id="proc">
+            <div class="section-heading">
+                <p class="eyebrow">Proč hrát</p>
+                <h2>Protože mutace tady nejsou bonus. Jsou celá identita každého runu.</h2>
+            </div>
+            <div class="reason-strip">
+                <p>Každá výměna orgánu promění siluetu, tempo i způsob čtení prostoru.</p>
+                <p>Bio-organický svět je vizuálně vlastní a vyhýbá se generickému fantasy hororu.</p>
+                <p>Meta-progrese buduje vivárium jako sbírku rozhodnutí, ne jen upgrade tree.</p>
+            </div>
+        </section>
+
+        <section class="section gallery" id="galerie">
+            <div class="section-heading">
+                <p class="eyebrow">Galerie specimen</p>
+                <h2>Materiály, které určují vzhled i tón celé hry.</h2>
+            </div>
+            <div class="mutation-grid">
+                <article><h3>Membrány</h3><p>Panely i UI dýchají a zdůrazňují vlhký laboratorní charakter.</p></article>
+                <article><h3>Sklo a pyl</h3><p>Kontrast křehké transparentnosti a agresivního růstu určuje čitelnost scény.</p></article>
+                <article><h3>Proměněná Irena</h3><p>Hlavní vizuální odměnou je sledovat, jak build mění samotnou hrdinku.</p></article>
+            </div>
+        </section>
+
+        <section class="section roadmap" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">Roadmap</p>
+                <h2>Vývoj roste po vrstvách jako skleník sám.</h2>
+            </div>
+            <div class="story-cards">
+                <article><h3>Q2 2026</h3><p>Combat slice s první mutační linií a dvěma biomorfními boss sety.</p></article>
+                <article><h3>Q4 2026</h3><p>Rozšířené demo s hubem, viváriem a alternativními reakcemi biomů.</p></article>
+                <article><h3>Q2 2027</h3><p>Plná verze s finální evoluční volbou a kompletní laboratoří.</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-cta" id="cta">
+        <div>
+            <p class="eyebrow">Finální CTA</p>
+            <h2>Otevři další vitrínu a sleduj, co z Ireny zůstane po dalším runu.</h2>
+        </div>
+        <div class="hero-actions">
+            <a class="button primary" href="#hero">Přidat na wishlist</a>
+            <a class="button secondary" href="#roadmap">Sledovat laboratoř</a>
+        </div>
+    </footer>
+</body>
+</html>

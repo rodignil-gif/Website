@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mytostroj Nadir</title>
+    <meta name="description" content="Mytostroj Nadir je 2D platformer roguelike o novicovi hvězdného kláštera, který přepíná gravitaci v orbitálním motoru.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="script2Dgame.js" defer></script>
+</head>
+<body>
+    <header class="hero" id="hero">
+        <div class="system-bar">
+            <span>Myth-tech sci-fi platformer</span>
+            <span>Orbitální diagnostika</span>
+            <span>Gravitace jako zbraň</span>
+        </div>
+
+        <nav class="system-nav">
+            <a href="#svet">Svět</a>
+            <a href="#systemy">Systémy</a>
+            <a href="#postavy">Postavy</a>
+            <a href="#biomy">Biomy</a>
+            <a href="#roadmap">Roadmap</a>
+        </nav>
+
+        <div class="hero-grid">
+            <aside class="hud-panel left">
+                <p class="eyebrow">Mytostroj Nadir</p>
+                <h1>Když modlitba přestane stačit, musíš přepnout celou oběžnou dráhu.</h1>
+                <p>
+                    Eon proniká do stroje, který drží svět na oběžnici. Souhvězdí tady nejsou symboly.
+                    Jsou to servisní obvody. Každý run mění směr pádu, rytmus boje i cestu skrze chrámový hardware.
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#cta">Požádat o přístup do segmentu</a>
+                    <a class="button secondary" href="#systemy">Otevřít diagnostiku</a>
+                </div>
+            </aside>
+
+            <div class="core-stage">
+                <canvas id="orbit-canvas" width="560" height="560" aria-label="Animovaný orbitální motor"></canvas>
+                <div class="mode-tabs">
+                    <button type="button" class="mode active" data-mode="Pád vzhůru" data-copy="Obrací vektor skoku a otevírá stropní trasy v observatoři.">Pád vzhůru</button>
+                    <button type="button" class="mode" data-mode="Magnetický tah" data-copy="Přitahuje Eona k vodivým stěnám a mění tempo soubojů v úzkých šachtách.">Magnetický tah</button>
+                    <button type="button" class="mode" data-mode="Nulová zóna" data-copy="Na krátký čas vypíná gravitaci a dovolí precizní manévr mezi orbitálními pastmi.">Nulová zóna</button>
+                </div>
+                <p class="mode-copy" id="mode-copy">Obrací vektor skoku a otevírá stropní trasy v observatoři.</p>
+            </div>
+
+            <aside class="hud-panel right">
+                <article><span>Hrdina</span><strong>Eon, novic kláštera</strong></article>
+                <article><span>Hook</span><strong>Přepínání gravitace</strong></article>
+                <article><span>Meta</span><strong>Archiv servisních hymnů</strong></article>
+            </aside>
+        </div>
+    </header>
+
+    <main>
+        <section class="section summary" id="svet">
+            <div class="section-heading">
+                <p class="eyebrow">O světě</p>
+                <h2>Nadir je současně chrám, motor i kolabující software starého světa.</h2>
+            </div>
+            <div class="module-grid wide">
+                <article>
+                    <h3>Souhvězdí jako hardware</h3>
+                    <p>Každá hvězdná konfigurace je funkční systém. Když se rozbije, nezhasne mýtus. Spadne kus oběžné dráhy.</p>
+                </article>
+                <article>
+                    <h3>Servisní liturgie</h3>
+                    <p>Modlitby kláštera jsou servisní příkazy. Eon začíná chápat, že víra a údržba tu splývají.</p>
+                </article>
+                <article>
+                    <h3>Hub observatoř</h3>
+                    <p>Mezi runy rozšiřuješ dílny, observatoř a archiv. Tím skládáš nový kánon gravitace.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section systems" id="systemy">
+            <div class="section-heading">
+                <p class="eyebrow">Gameplay systémy</p>
+                <h2>Každé rozhodnutí mění úhel pohledu, doslova.</h2>
+            </div>
+            <div class="module-grid">
+                <article><h3>Polarity</h3><p>Různé moduly přesměrovávají Eona k vodivým stěnám a mění bezpečné zóny arén.</p></article>
+                <article><h3>Vertikální flow</h3><p>Stroj je navržený pro pohyb vzhůru i dolů. Neexistuje jediné čitelné „dole“.</p></article>
+                <article><h3>Buildy modulů</h3><p>Deflektory, tether pole a nulové kapsy vytvářejí buildy pro agresi, přežití i precizní traversal.</p></article>
+            </div>
+        </section>
+
+        <section class="section story" id="pribeh">
+            <div class="section-heading">
+                <p class="eyebrow">Příběh</p>
+                <h2>Eon vstupuje do stroje jako novic. Vychází z něj jako někdo, kdo ví, že mýtus je údržbový protokol.</h2>
+            </div>
+            <div class="timeline">
+                <article><h3>První servis</h3><p>Eon objeví, že rozbitý modul nereaguje na modlitbu, ale na správně vložený vektor pádu.</p></article>
+                <article><h3>Sestra Khela</h3><p>Ztracená pilotka vysvětluje, proč klášter raději vypráví legendy, než aby přiznal poruchu systému.</p></article>
+                <article><h3>Nultý Opat</h3><p>Finální boss hájí stabilitu stroje za cenu toho, že svět už nikdy nebude skutečně svobodný.</p></article>
+            </div>
+        </section>
+
+        <section class="section cast" id="postavy">
+            <div class="section-heading">
+                <p class="eyebrow">Postavy</p>
+                <h2>Uvnitř stroje mluví mniši, piloti i samotné jádro.</h2>
+            </div>
+            <div class="module-grid">
+                <article><h3>Eon</h3><p>Novic s magnetickými sandály a holí z navigačního skla.</p></article>
+                <article><h3>Sestra Khela</h3><p>Bývalá pilotka, která ví, jak zní stroj, když přestane hrát roli božstva.</p></article>
+                <article><h3>Nadir Core</h3><p>Polovědomé jádro, které mluví jazykem liturgie i strojového logu zároveň.</p></article>
+            </div>
+        </section>
+
+        <section class="section biomes" id="biomy">
+            <div class="section-heading">
+                <p class="eyebrow">Biomy</p>
+                <h2>Každý segment je jiná kombinace sakrální architektury a přesné mechaniky.</h2>
+            </div>
+            <div class="module-grid four">
+                <article><h3>Prstenec Noviců</h3><p>Výukový kruh se základními polaritami a servisními rampami.</p></article>
+                <article><h3>Skleněná Observatoř</h3><p>Chladný biome s dlouhými průhledy, zrcadlením a obrácenými skoky.</p></article>
+                <article><h3>Inverzní Chóry</h3><p>Místo, kde se hlasové komory zároveň modlí a přepočítávají oběžnou dráhu.</p></article>
+                <article><h3>Nulová Krypta</h3><p>Nejtišší segment stroje, kde pravidla gravitace platí jen po zlomky sekund.</p></article>
+            </div>
+        </section>
+
+        <section class="section enemies" id="nepratele">
+            <div class="section-heading">
+                <p class="eyebrow">Nepřátelé a bossové</p>
+                <h2>Bestiář je technický, ale nikdy neztrácí rituální vážnost.</h2>
+            </div>
+            <div class="module-grid">
+                <article><h3>Servisní cherubíni</h3><p>Levitující droni, kteří zároveň opravují a brání systém před narušením.</p></article>
+                <article><h3>Trojitý Seraf Reaktoru</h3><p>Boss arény, kde se tři rotační fáze gravitace překrývají do jednoho patternu.</p></article>
+                <article><h3>Nultý Opat</h3><p>Finální strážce, který používá stejná pravidla jako hráč, jen v mnohem větším měřítku.</p></article>
+            </div>
+        </section>
+
+        <section class="section reasons" id="proc">
+            <div class="section-heading">
+                <p class="eyebrow">Proč hrát</p>
+                <h2>Nadir není jen sci-fi kulisa. Je to prostor, který reaguje na směr tvého pádu.</h2>
+            </div>
+            <div class="module-grid">
+                <article><p>Gravitace mění traversal, souboj i čitelnost celé mapy.</p></article>
+                <article><p>Myth-tech směr kombinuje sakrální náladu s čistou futuristickou ergonomií.</p></article>
+                <article><p>Meta-progrese buduje observatoř jako skutečný servisní mozek celé hry.</p></article>
+            </div>
+        </section>
+
+        <section class="section roadmap" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">Roadmap</p>
+                <h2>Vývoj je rozdělený podle znovuzprovozňovaných orbitálních segmentů.</h2>
+            </div>
+            <div class="timeline">
+                <article><h3>Q2 2026</h3><p>První vertikální slice s Prstencem Noviců a jedním polaritním bossem.</p></article>
+                <article><h3>Q4 2026</h3><p>Veřejné demo s observatoří, archivem a plnou gravitační rotací buildů.</p></article>
+                <article><h3>Q3 2027</h3><p>Kompletní verze s pěti segmenty stroje a rozhodnutím o nové oběžné dráze světa.</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-cta" id="cta">
+        <div>
+            <p class="eyebrow">Finální CTA</p>
+            <h2>Vstup do diagnostiky a sleduj, kdy se otevře první veřejný segment Nadiru.</h2>
+        </div>
+        <div class="hero-actions">
+            <a class="button primary" href="#hero">Přidat na wishlist</a>
+            <a class="button secondary" href="#systemy">Zobrazit systémy</a>
+        </div>
+    </footer>
+</body>
+</html>
