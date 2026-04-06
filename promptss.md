@@ -1,3 +1,9 @@
+# Prompt Archive
+
+[Master Table](MASTER_TABLE.md) · [Root Hub](index.html)
+
+Historický balík promptů, ze kterého vycházela první generace zadání pro tuto kolekci webů. Aktuální finální sada projektů je zapsaná v `MASTER_TABLE.md`.
+
 Ни́же — 10 гото́вых промптов для ка́ждого из 10 репозито́риев.
 Я специа́льно во всех промптах использую то́чное и́мя файла `DESING.md`, что́бы у тебя́ ничегó не слома́лось, е́сли пайпла́йн уже́ завя́зан и́менно на э́то назва́ние.
 
